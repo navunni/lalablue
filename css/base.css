@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Libre+Baskerville:wght@400;700&display=swap');
+
+:root {
+    --bg: #ffffff;
+    --text: #111111;
+    --muted: #6b6b6b;
+    --border: #e6e6e6;
+
+    --max-width: 1300px;
+    
+    --sans: 'Inter', sans-serif;
+    --serif: 'Libre Baskerville', serif;
+
+    --nav-size: 13px;
+    --body-size: 15px;
+    --title-size: 42px;
+
+    --spacing-xl: 120px; 
+    --spacing-lg: 80px;
+    --spacing-md: 50px;
+    --spacing-sm: 30px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+body {
+    font-family: var(--sans);
+    background: var(--bg);
+    font-size: var(--body-size);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+img {
+    width: 100%;
+    display: block; 
+}
+
+a {
+    text-decoration: none;
+    color: inherit
+}
+
+button, input {
+    font-family: inherit;
+}
