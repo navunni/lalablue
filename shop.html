@@ -71,6 +71,14 @@
             .product-grid { grid-template-columns: 1fr; }
             .shop-header-section, .shop-grid-section { padding-left: 24px; padding-right: 24px; }
         }
+
+        #collection-component-1774905433838 {
+            padding: 0 52px;
+        }
+        #collection-component-1774905433838 iframe {
+            width: 100% !important;
+        }
+        
     </style>
 </head>
 <body>
@@ -104,39 +112,67 @@
  
 <section class="shop-grid-section">
     <div class="shop-inner">
-        <div class="product-grid">
- 
-            <!--Gammon Bag!-->
-            <a href="index.html#product" class="product-card fade-up">
-                <div class="product-card-img">
-                    <img src="assets/images/product-front.jpg" alt="The Gammon Bag — front view">
-                    <span class="product-card-badge">New</span>
-                </div>
-                <p class="product-card-name">The Gammon Bag</p>
-                <p class="product-card-desc">
-                    Limited edition leather shoulder bag in black, gunmetal grey hardware,
-                    with the signature Lala Blue logo embossing.
-                </p>
-                <p class="product-card-dims">
-                    W: 34 cm · H: 14 cm · D: 11 cm · Handle Drop: 28 cm
-                </p>
-                <p class="product-card-price">$495.00 USD</p>
-            </a>
- 
-            <!--This is a placeholder card — remove or replace as new bags are added-->
-            <!-- 
-            <a href="#" class="product-card fade-up d1">
-                <div class="product-card-img">
-                    <img src="assets/images/coming-soon.jpg" alt="Coming Soon">
-                </div>
-                <p class="product-card-name">Coming Soon</p>
-                <p class="product-card-price">—</p>
-            </a>
-            -->
- 
-        </div>
+        <div id='collection-component-1774905433838'></div>
     </div>
 </section>
+
+<script type="text/javascript">
+(function () {
+  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+  if (window.ShopifyBuy) {
+    if (window.ShopifyBuy.UI) { ShopifyBuyInit(); } else { loadScript(); }
+  } else { loadScript(); }
+  function loadScript() {
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = scriptURL;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+    script.onload = ShopifyBuyInit;
+  }
+  function ShopifyBuyInit() {
+    var client = ShopifyBuy.buildClient({
+      domain: '08c65d-2.myshopify.com',
+      storefrontAccessToken: '52bd6097fb0747ad170d5bdeb66c81d1',
+    });
+    ShopifyBuy.UI.onReady(client).then(function (ui) {
+      ui.createComponent('collection', {
+        id: '426275799280',
+        node: document.getElementById('collection-component-1774905433838'),
+        moneyFormat: '%24%7B%7Bamount%7D%7D',
+        options: {
+          "product": {
+            "styles": {
+              "product": {
+                "@media (min-width: 601px)": {
+                  "max-width": "calc(25% - 20px)",
+                  "margin-left": "20px",
+                  "margin-bottom": "50px",
+                  "width": "calc(25% - 20px)"
+                },
+                "img": { "height": "calc(100% - 15px)", "position": "absolute", "left": "0", "right": "0", "top": "0" },
+                "imgWrapper": { "padding-top": "calc(75% + 15px)", "position": "relative", "height": "0" }
+              }
+            },
+            "text": { "button": "Add to Bag" }
+          },
+          "productSet": {
+            "styles": {
+              "products": { "@media (min-width: 601px)": { "margin-left": "-20px" } }
+            }
+          },
+          "modalProduct": {
+            "contents": { "img": false, "imgWithCarousel": true, "button": false, "buttonWithQuantity": true },
+            "text": { "button": "Add to Bag" }
+          },
+          "option": {},
+          "cart": { "text": { "total": "Subtotal", "button": "Checkout" } },
+          "toggle": {}
+        },
+      });
+    });
+  }
+})();
+</script>
  
 <section class="newsletter">
     <div class="newsletter-inner fade-up">

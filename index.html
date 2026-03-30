@@ -122,6 +122,15 @@
             }
             .logo-video-wrap { width: 44px; height: 44px;}
         }
+        
+        #shopify-buy-btn-container {
+            display: flex;
+            justify-content: center;
+        }
+        #shopify-buy-btn-container iframe {
+            width: 100% !important;
+        }
+        
     </style>
 </head>
 <body>
@@ -286,10 +295,7 @@
         <!--Shopify Buy Button should go here-->
 
         <div id="shopify-buy-btn-container">
-            <button class="add-to-cart"
-                    onclick="window.open('https://lalablue.com/products/the-gammon-bag','_blank')">
-                Add to Bag - $495.00
-            </button>
+            <div id='product-component-1774905406338'></div>
         </div>
 
         <a href="contact.html" class="inquiry-link">Have a question? Contact us.</a>
@@ -412,7 +418,58 @@
     </div>
 </footer>
 
-<script src="js/main.js">
-</script>
+<!--Shopify Product Script Integration-->
+<script type="text/javascript">
+    (function () {
+      var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+      if (window.ShopifyBuy) {
+        if (window.ShopifyBuy.UI) { ShopifyBuyInit(); } else { loadScript(); }
+      } else { loadScript(); }
+      function loadScript() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = scriptURL;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+        script.onload = ShopifyBuyInit;
+      }
+      function ShopifyBuyInit() {
+        var client = ShopifyBuy.buildClient({
+          domain: '08c65d-2.myshopify.com',
+          storefrontAccessToken: '52bd6097fb0747ad170d5bdeb66c81d1',
+        });
+        ShopifyBuy.UI.onReady(client).then(function (ui) {
+          ui.createComponent('product', {
+            id: '9404479570160',
+            node: document.getElementById('product-component-1774905406338'),
+            moneyFormat: '%24%7B%7Bamount%7D%7D',
+            options: {
+              "product": {
+                "styles": {
+                  "product": {
+                    "@media (min-width: 601px)": {
+                      "max-width": "100%",
+                      "margin-left": "0px",
+                      "margin-bottom": "0px"
+                    }
+                  }
+                },
+                "text": { "button": "Add to Bag" }
+              },
+              "modalProduct": {
+                "contents": { "img": false, "imgWithCarousel": true, "button": false, "buttonWithQuantity": true },
+                "text": { "button": "Add to Bag" }
+              },
+              "option": {},
+              "cart": { "text": { "total": "Subtotal", "button": "Checkout" } },
+              "toggle": {}
+            },
+          });
+        });
+      }
+    })();
+    </script>
+
+    <script src="js/main.js"></script>
+
 </body>
 </html>

@@ -6,8 +6,8 @@ window.addEventListener('scroll', () => header.classList.toggle('scrolled', wind
 const hamburger = document.getElementById('hamburger');
 const mobileNav = document.getElementById('mobile-nav');
 hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    mobileNav.classList.toggle('active');
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
 });
 
 // Logo Video - play only on hover. 
@@ -40,3 +40,10 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.fade-up, .fade-in').forEach(el => {
     if (!el.closest('.hero')) { el.style.animationPlayState = 'paused'; observer.observe(el); }
 });
+
+function swapImage(src, alt) {
+    const img = document.getElementById('main-img');
+    img.style.opacity = '0';
+    img.style.transition = 'opacity 0.28s';
+    setTimeout(() => { img.src = src; img.alt = alt; img.style.opacity = '1'; }, 280);
+}
