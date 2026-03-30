@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping & Returns — Lala Blue</title>
+    <meta name="description" content="Lala Blue shipping and return policy information.">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <style>
+        .policy-page {
+            margin-top: var(--header-h);
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 96px 52px 140px;
+        }
+        .policy-eyebrow {
+            font-size: 10px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--saffron);
+            margin-bottom: 20px;
+        }
+        .policy-page h1 {
+            font-family: var(--serif);
+            font-size: clamp(32px, 4vw, 52px);
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.1;
+            margin-bottom: 64px;
+        }
+        .policy-block {
+            margin-bottom: 56px;
+            padding-bottom: 56px;
+            border-bottom: 1px solid var(--border);
+        }
+        .policy-block:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .policy-block h2 {
+            font-family: var(--serif);
+            font-size: 22px;
+            font-weight: 300;
+            font-style: italic;
+            margin-bottom: 20px;
+            letter-spacing: 0.02em;
+        }
+        .policy-block p {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.95;
+            margin-bottom: 14px;
+        }
+        .policy-block p:last-child { margin-bottom: 0; }
+        .policy-block a {
+            color: var(--text);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: opacity 0.2s;
+        }
+        .policy-block a:hover { opacity: 0.5; }
+        .policy-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 56px;
+            transition: color 0.2s;
+        }
+        .policy-back:hover { color: var(--text); }
+        .policy-back::before {
+            content: '←';
+            font-size: 14px;
+        }
+ 
+        @media (max-width: 600px) {
+            .policy-page { padding: 64px 24px 100px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header" id="site-header">
+    <div class="header-inner">
+        <nav class="nav-left">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="logo">
+            <a href="index.html"><span class="logo-text">Lala Blue</span></a>
+        </div>
+        <nav class="nav-right">
+            <ul><li><a href="shop.html">Shop Now</a></li></ul>
+        </nav>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+</header>
+<nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="contact.html">Contact</a>
+</nav>
+ 
+<main class="policy-page">
+ 
+    <a href="index.html" class="policy-back fade-up">Back to home</a>
+ 
+    <p class="policy-eyebrow fade-up d1">Policies</p>
+    <h1 class="fade-up d2">Shipping &<br>Returns</h1>
+ 
+    <!-- SHIPPING -->
+    <div class="policy-block fade-up d3">
+        <h2>Shipping</h2>
+        <p><strong>Processing Time</strong></p>
+        <p>
+            At this time pre-orders are accepted. You will receive an email 
+            notification when your order has shipped.
+        </p>
+        <p>
+            Estimated time of shipping is approximately by the end of May 2025.
+        </p>
+    </div>
+ 
+    <!--Returns-->
+    <div class="policy-block fade-up d4">
+        <h2>Return Policy</h2>
+        <p>
+            Lala Blue does not accept returns or exchanges at this time.
+        </p>
+        <p>
+            Please <a href="contact.html">contact us</a> through the contact page 
+            with any questions regarding your purchase.
+        </p>
+    </div>
+ 
+    <!--Questions!-->
+    <div class="policy-block fade-up d5">
+        <h2>Questions?</h2>
+        <p>
+            If you have any questions about your order, shipping, or anything else,
+            please reach out through the <a href="contact.html">contact page</a> and we'll get back to you shortly.
+        </p>
+    </div>
+ 
+</main>
+ 
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <span class="logo-text">Lala Blue</span>
+            <p class="footer-tagline">Handcrafted leather goods.</p>
+        </div>
+        <nav class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="contact.html">Contact</a>
+            <a href="shipping-returns.html">Shipping & Returns</a>
+            <a href="#">Privacy Policy</a>
+        </nav>
+        <div class="footer-right">
+            <div class="footer-social">
+                <a href="#">Instagram</a>
+                <a href="#">Pinterest</a>
+            </div>
+            <p class="footer-copy">© 2026 Lala Blue. All rights reserved.</p>
+        </div>
+        <hr class="footer-divider">
+    </div>
+</footer>
+ 
+<script>src="js/shipping.js"</script>
+</body>
+</html>
+

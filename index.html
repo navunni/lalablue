@@ -3,90 +3,420 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lala Blue</title>
-    
+    <title> LaLa Blue - The Gammon Bag</title>
+    <meta name="description" content="The Gammon Bang by Lala Blue. Limited edition leather shoulder bag in black, gunmetal gray hardware. $495.">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
-</html>
+    <style>
+        .logo-video-wrap {
+            position: relative;
+            width: 56px;
+            height: 56px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .logo-spin-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .logo-wordmark {
+            font-family: var(--serif);
+            font-size: 22px; font-weight: 300; font-style: italic;
+            letter-spacing: 0.07em; color: var(--text);
+            transition: opacity 0.4s ease;
+            white-space: nowrap; position: absolute;
+        }
+        .logo:hover .logo-spin-video { opacity: 1; }
+        .logo:hover .logo-wordmark { opacity: 0; }
 
-<body> 
-    <header class="site-header">
-        <div class="header-inner">
-            
-            </nav class="site-nav">
-                <ul>
-                    <li><a href="#">Women</a></li>
-                    <li><a href="#">Men</a></li>
-                    <li><a href="#">Handbags</a></li>
-                    <li><a href="#">Collections</a></li>
-                </ul>
-            <nav>
+        .marquee-strip {
+            overflow: hidden;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0; background: var(--bg);
+        }
 
-            <div class="logo">
-                <a href="/" aria-label="Home">
-                    <img src="/assets/icons/full-name-lala-blue.svg" alt="Lala Blue" class="logo-img">
-                </a>          
-            </div>
+        .marquee-track {
+            display: flex; 
+            width: max-content;
+            animation: marquee 24s linear infinite;
+        }
 
-            <div class="nav-right">
-                <ul>
-                    <a href="#" class="icon-link">Search</a>
-                    <a href="#" class="icon-link">Account</a>
-                    <a href="#" class="icon-link">Checkout</a>
-                </ul>
-            <div>
+        .marquee-track:hover { animation-play-state: paused; }
+        .marquee-unit {
+            display: flex; align-items: center; gap: 36px;
+            padding: 0 36px; white-space: nowrap;
+            font-family: var(--serif); font-style: italic;
+            font-size: 17px; 
+            font-weight: 300;
+            letter-spacing: 0.06em;
+            color: var(--text);
+            opacity: 0.5;
+        }
 
+        .marquee-dot {
+            width: 4px; 
+            height: 4px;
+            border-radius: 50%;
+            background: var(--saffron);
+            flex-shrink: 0;
+        }
+
+        @keyframes marquee {
+            from { transform: translateX(0);}
+            to { transform: translateX(-50%);}
+        }
+
+        /* Logo Feature Section */
+        .logo-feature {
+            padding: var(--spacing-x1) 52px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px; align-items: center;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .logo-feature-video {
+            aspect-ratio: 1/1; background: var(--bg-alt);
+            overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .logo-feature-video video {
+            width: 80%; height: 80%;
+            object-fit: contain;
+        }
+
+        .logo-feature-text .story-eyebrow {
+            font-size: 10px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--saffron);
+            margin-bottom: 20px;
+        }
+
+        .logo-feature-text h2 {
+            font-family: var(--serif);
+            font-size: clam(28px, 3vw, 44px);
+            font-weight: 300; 
+            font-style: italic; 
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .logo-feature-text p {
+            font-size: 14px; line-height: 1.9;
+            color: var(--muted);
+        }
+
+        @media (max-width: 900px) {
+            .logo-feature {
+                grid-template-columns: 1fr;
+                gap: 48px;
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+            .logo-video-wrap { width: 44px; height: 44px;}
+        }
+    </style>
+</head>
+<body>
+
+<!---Header!-->
+<header class="site-header" id="site-header">
+    <div class="header-inner">
+        <nav class="nav-left">
+            <ul>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="#story">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="logo">
+            <a href="index.html" aria-label="Lala Blue - Home">
+                <div class="logo-video-wrap">
+                    <span class="logo-wordmark">Lala Blue</span>
+                    <video class="logo-spin-video" muted loop playsinline poster="assets/images/logo-poster.png" preload="none">
+                        <source src="assets/videos/logo-spin.webm" type="video/webm">
+                        <source src="assets/videos/logo-spin.mp4" type="video/mp4"> 
+                    </video>
+                </div>
+            </a>
         </div>
-    </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-image">
-                <img src="assets/images/hero.jpg" alt="Hero Image"> ## Template for hero image, replace with actual image path
+        <nav class="nav-right">
+            <ul><li><a href="shop.html">Shop Now</a></li></ul>
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+        </button>
+    </div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav">
+    <a href="shop.html">Shop</a>
+    <a href="#story">About</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<section class="hero">
+    <div class="hero-image fade-in">
+        <img src="assets/images/hero.jpg" alt="The Gammon Bag by Lala Blue">
+    </div>
+    <div class="hero-content">
+        <div class="hero-label fade-up d1">New</div>
+        <h1 class="fade-up d2">The Gammon Bag<br>Bag</h1>
+        <p class="fade-up d3">Limited edition. Matte black calfskin. <br>Saffron-lined. Gunmetal hardware. </p>
+        <a href="shop.html" class="btn fade-up d4"> Discover the Gammon Bag </a>
+    </div>
+    <div class="hero-scroll fade-up d5">Scroll</div>
+</section>
+
+<!--Marquee One-->
+<div class="marquee-strip">
+    <div class="marquee-track">
+        <div class="marquee-unit">Lala Blue <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">The Gammon Bag <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Handcrafted Leather <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Limited Edition <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Orders Available Now <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Lala Blue<span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Handcrafted Leather<span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Limited Edition<span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Orders Available Now<span class="marquee-dot"></div>
+
+        <div class="marquee-unit">Lala Blue <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">The Gammon Bag <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Handcrafted Leather <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Limited Edition <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Orders Available Now <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Lala Blue<span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Handcrafted Leather<span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Limited Edition<span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Orders Available Now<span class="marquee-dot"></div>  
+    </div>
+</div>
+
+<!--Product Spotlight!-->
+
+<section class="product-spotlight" id="product">
+    <div class="spotlight-inner">
+        <div class="spotlight-gallery">
+            <div class="gallery-main">
+                <img src="assets/images/product-front.jpg" alt="The Gammon Bag - front view" id="main-img">
+            </div>
+        </div>
+        <div class="gallery-thumb" onclick="swapImage('assets/images/product-34.jpg', '3/4 profile')">
+            <img src="assets/images/product-34.jpg" alt="3/4 profile view">
+        </div>
+        <div class="gallery-thumb" onclick="swapImage('assets/images/interior-zip.jpg','Interior with zip pocket')">
+            <img src="assets/images/interior-zip.jpg" alt="Interior">
+        </div>
+        <div class="gallery-thumb" onclick="swapImage('assets/images/detail.jpg','Hardware & monogram detail')">
+            <img src="assets/images/detail.jpg" alt="Hardware detail">
+        </div>
+        <div class="gallery-thumb" onclick="swapImage('assets/images/product-chain.jpg','Side profile with chain')">
+            <img src="assets/images/product-chain.jpg" alt="Side with chain">
+        </div>
+
+        <!--Product Info-->
+        <div class="product-info">
+            <p class="product-eyebrow">Lala Blue - Debut Collection</p>
+            <h2 class="product-title">The Gammon<br>Bag</h2>
+            <p class="product-price-dispay">$495.00 USD</p>
+            <p class="product-desc">
+                Limited edition shoulder bag in black, gunmetal grey hardware
+                with the signature Lala Blue logo embossing. 
+            </p>
+
+            <div class="details-section">
+
+                <div class="detail-row" onclick="toggleDetail(this)">
+                    <span class="detail-label">Details</span>
+                    <span class="detail-toggle">+</span>
+                </div>
+                <div class="detail-body">
+                    <ul>
+                        <li>Width: 34 cm | 13.38in</li>
+                        <li>Height: 14 cm | 5.51in</li>
+                        <li>Depth: 11 cm | 4.33in</li>
+                        <li>Handle Drop: 28 cm | 11.02in</li>
+                        <li>Full-grain Matte black calfskin leather</li>
+                        <li>Saffron Suede lining</li>
+                        <li>Gunmetal grey hardware throughout</li>
+                        <li>Dual shoulder straps + removable crossbody straps</li>
+                        <li>Interior zip pocket + two open slip pockets</li>
+                    </ul>
+                </div>
+
+                <!--Product Care-->
+                <div class="detail-row" onclick="toggleDetail(this)">
+                    <span class="detail-label">Product Care</span>
+                    <span class="detail-toggle">+</span>
+            </div>
+            <div class="detail-body">
+                <p style="margin-bottom:12px">Due to the delicate nature of this product we recommend:</p>
+                <ul>
+                    <li>Avoid contact with water, perfumes, oils, chemical substances, makeup, alcoholic or fatty substances, generic cleaning products such as shoe polish, trichloroethylene, stain removers, or solvents as discoloration can occur and alter the appearance of your product.</li>
+                    <li>Avoid contact with rough or abrasive surfaces, so that your product does not scratch.</li>
+                    <li>Avoid contact of dark colored products with light or bright colored products in hot or humid weather to prevent potential transfer of color.</li>
+                    <li>Do not let your item come into contact with light, humidity, and direct heat for long periods of time as it may affect the appearance of your product.</li>
+                    <li>If your product comes into contact with water, gently pat the area(s) dry. Avoid excessive rubbing.</li>
+                    <li>Store the product in its protective dust bag when not in use. To maintain this bag's shape, we recommend padding it with tissue paper.</li>
+                </ul>
             </div>
 
-            <div class="hero-content">
-                <h1>The Gammon Bag</h1>
-                <a href="#" class="btn">Shop Now</a>
+            <!--Shipping & Returns-->
+            <div class="detail-row" onclick="toggleDetail(this)">
+                <span class="detail-label">Shipping & Returns</span>
+                <span class="detail-toggle">+</span>
             </div>
-
-        <section class="featured"> 
-            <div class="section-title">
-                <h2>Featured Products</h2>
+            <div class="detail-body">
+                <p style="margin-bottom:10px"><strong>Shipping</strong></p>
+                <p style="margin-bottom:12px">At this time pre-orders are accepted. You will receive an email notification when your order has shipped.</p>
+                <p style="margin-bottom:16px"><a href="shipping-returns.html" style="text-decoration:underline; text-underline-offset:3px; color:var(--saffron); font-size:12px; letter-spacing:0.06em;">View full shipping & returns policy →</a></p>
+                <p style="margin-bottom:10px"><strong>Returns</strong></p>
+                <p>Lala Blue does not accept returns or exchanges at this time. Please <a href="contact.html" style="text-decoration:underline; text-underline-offset:3px;">contact us</a> with any questions regarding your purchase.</p>
             </div>
+        </div>
 
-            <div class="product-grid">
-                <a href="#" class="product-card"> 
-                    <img src="assets/images/product1.jpg" alt="Product 1"> ## Template for product image, replace with actual image path
-                    <p class="product-name">The Gammon Bag</p>
-                    <p class="product-price">$495.00~</p>
+        <!--Shopify Buy Button should go here-->
+
+        <div id="shopify-buy-btn-container">
+            <button class="add-to-cart"
+                    onclick="window.open('https://lalablue.com/products/the-gammon-bag','_blank')">
+                Add to Bag - $495.00
+            </button>
+        </div>
+
+        <a href="contact.html" class="inquiry-link">Have a question. Contact us.</a>
+    </div>
+    </div>
+</section>
+
+<!--Details Section-->
+<section class="detail-strip">
+    <div class="strip-inner">
+        <div class="strip-item">
+            <img src="assets/images/interior-top.jpg" alt="Saffron interior">
+            <span class="strip-caption">Saffron interior</span>
+        </div>
+        <div class="strip-item">
+            <img src="assets/images/detail.jpg" alt="Logo embossing & hardware">
+            <span class="strip-caption">Logo embossing & hardware</span>
+        </div>
+        <div class="strip-item">
+            <img src="assets/images/product-side.jpg" alt="Clean silhouette">
+            <span class="strip-caption">Clean silhouette</span>
+        </div>
+    </div>
+</section>
+
+<!--Spinning Logo Feature Section-->
+<section class="logo-feature">
+    <div class="logo-feature-video fade-in">
+        <video autoplay muted loop playsinline
+               poster="assets/images/logo-poster.png">
+            <source src="assets/videos/logo-spin.webm" type="video/webm">
+            <source src="assets/videos/logo-spin.mp4"  type="video/mp4">
+        </video>
+    </div>
+    <div class="logo-feature-text fade-up d2">
+        <p class="story-eyebrow">The Mark</p>
+        <h2>A name that moves.</h2>
+        <p>The Lala Blue wordmark is drawn by hand. It's loose, confident, unafraid of imperfection. Nothing is forced, yet everything is considered.</p>
+    </div>
+</section>
+
+<!--Marquee 2-->
+<div class="marquee-strip">
+    <div class="marquee-track" style="animation-direction:reverse; animation-duration:32s;">
+        <div class="marquee-unit">$495.00 USD <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Width 34 cm <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Gunmetal Hardware <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Saffron Lining <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Made to Order <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">$495.00 USD <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Width 34 cm <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Gunmetal Hardware <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Saffron Lining <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Made to Order <span class="marquee-dot"></span></div>
+        <!-- duplicate -->
+        <div class="marquee-unit">$495.00 USD <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Width 34 cm <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Gunmetal Hardware <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Saffron Lining <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Made to Order <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">$495.00 USD <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Width 34 cm <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Gunmetal Hardware <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Saffron Lining <span class="marquee-dot"></span></div>
+        <div class="marquee-unit">Made to Order <span class="marquee-dot"></span></div>
+    </div>
+</div>
+
+<!--Brand Background-->
+<section class="brand-story" id="story">
+    <div class="story-text fade-up">
+        <p class="story-eyebrow">The Brand</p>
+        <h2 class="story-headline">Designed from a place<br>of quiet conviction.</h2>
+        <p class="story-body">
+            Lala Blue was founded by Elika Broumand with a cornerstone belief: that an object made
+            with genuine care will outlast every trend. 
+        </p>
+        <p class="story-body">The Gammon Bag is the debut. Matte black. Saffron inside. Orders available now.</p>
+        <a href="contact.html" class="btn btn-dark">Get in Touch</a>
+    </div>
+    <div class="story-image fade-up d2">
+        <img src="assets/images/interior-open.jpg" alt="The Gammon Bag open, showing saffron lining">
+    </div>
+</section>
+ 
+<!--Newsletter-->
+<section class="newsletter">
+    <div class="newsletter-inner fade-up">
+        <h3>Stay close to the work.</h3>
+        <p>New pieces, stories, and early access delivered quietly to your inbox.</p>
+        <div class="newsletter-form"> 
+            <input type="email" placeholder="Your email address" aria-label="Email address">
+            <button type="button">Subscribe</button>
+        </div>
+    </div>
+</section>
+
+<!--Footer-->
+<footer class="footer">
+    <div class="footer-innter">
+        <div class="footer-brand">
+            <span class="logo-text">Lala Blue</span>
+            <p class="footer-tagline">Handcrafted leather goods.</p>
+        </div>
+        <nav class="footer-nav">
+            <a href="shop.html">Shop</a>
+            <a href="#story">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="shipping-returns.html">Shipping &amp; Returns</a>
+            <a href="#">Privacy Policy</a>
+        </nav>
+        <div class="footer-right">
+            <div class="footer-social">
+                <a href="#" aria-label="Instagram">Instagram</a>
+                <a href="#" aria-label="Pinterest">Pinterest</a>
             </div>
-        </section>
-
-        <section class="newsletter">
-            <div class="newsletter-content">
-                <h3>Subscribe to our newsletter!</h3>
-                <p>Be the first to know about our new products, exclusive offers, and more.</p>
-
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Email Address" required /> 
-                    <button type="submit"></button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="footer-inner">
-            <div class="footer-links"> 
-                <a href="#">About</a>
-                <a href="#">Contact</a>
-                <a href="#">Shipping</a>
-                <a href="#">Returns</a>
-                <a href="#">Privacy Policy </a>
-            </div>
-
             <p class="footer-copy">© 2026 Lala Blue. All rights reserved.</p>
         </div>
-    </footer>
+        <hr class="footer-divider">
+    </div>
+</footer>
+
+<script src="js/main.js">
+</script>
 </body>
+</html>
