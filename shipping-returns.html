@@ -78,14 +78,15 @@
             content: '←';
             font-size: 14px;
         }
- 
+
         @media (max-width: 600px) {
             .policy-page { padding: 64px 24px 100px; }
         }
     </style>
 </head>
 <body>
-    <header class="site-header" id="site-header">
+
+<header class="site-header" id="site-header">
     <div class="header-inner">
         <nav class="nav-left">
             <ul>
@@ -108,14 +109,14 @@
     <a href="shop.html">Shop</a>
     <a href="contact.html">Contact</a>
 </nav>
- 
+
 <main class="policy-page">
- 
+
     <a href="index.html" class="policy-back fade-up">Back to home</a>
- 
+
     <p class="policy-eyebrow fade-up d1">Policies</p>
     <h1 class="fade-up d2">Shipping &<br>Returns</h1>
- 
+
     <!-- SHIPPING -->
     <div class="policy-block fade-up d3">
         <h2>Shipping</h2>
@@ -128,8 +129,8 @@
             Estimated time of shipping is approximately by the end of May 2025.
         </p>
     </div>
- 
-    <!--Returns-->
+
+    <!-- RETURNS -->
     <div class="policy-block fade-up d4">
         <h2>Return Policy</h2>
         <p>
@@ -140,18 +141,19 @@
             with any questions regarding your purchase.
         </p>
     </div>
- 
-    <!--Questions!-->
+
+    <!-- QUESTIONS -->
     <div class="policy-block fade-up d5">
         <h2>Questions?</h2>
         <p>
-            If you have any questions about your order, shipping, or anything else,
-            please reach out through the <a href="contact.html">contact page</a> and we'll get back to you shortly.
+            If you have any questions about your order, shipping, or anything else — 
+            we're happy to help. Reach out through the 
+            <a href="contact.html">contact page</a> and we'll get back to you promptly.
         </p>
     </div>
- 
+
 </main>
- 
+
 <footer class="site-footer">
     <div class="footer-inner">
         <div class="footer-brand">
@@ -167,7 +169,7 @@
         </nav>
         <div class="footer-right">
             <div class="footer-social">
-                <a href="https://www.instagram.com/lalablueofficial/">Instagram</a>
+                <a href="#">Instagram</a>
                 <a href="#">Pinterest</a>
             </div>
             <p class="footer-copy">© 2026 Lala Blue. All rights reserved.</p>
@@ -175,8 +177,20 @@
         <hr class="footer-divider">
     </div>
 </footer>
- 
-<script src="js/shipping.js"></script>
+
+<script>
+const header = document.getElementById('site-header');
+window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobile-nav');
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+});
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.style.animationPlayState='running'; observer.unobserve(e.target); }});
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => { el.style.animationPlayState='paused'; observer.observe(el); });
+</script>
 </body>
 </html>
-

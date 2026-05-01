@@ -15,6 +15,7 @@
             grid-template-columns: 1fr 1fr;
             align-items: stretch;
         }
+
         .contact-left {
             background: var(--bg-dark);
             padding: 96px 64px;
@@ -26,7 +27,7 @@
             font-size: 10px;
             letter-spacing: 0.22em;
             text-transform: uppercase;
-            color: var(--saffron);
+            color: rgba(255,255,255,0.5);
             margin-bottom: 24px;
         }
         .contact-left h1 {
@@ -56,7 +57,7 @@
             color: rgba(247,245,240,0.65);
             transition: color 0.2s;
         }
-        .contact-info a:hover { color: var(--saffron); }
+        .contact-info a:hover { color: rgba(255,255,255,0.5); }
  
         .contact-right {
             padding: 96px 64px;
@@ -118,7 +119,7 @@
             margin-top: 8px;
             transition: background 0.28s var(--ease);
         }
-        .form-submit:hover { background: var(--saffron); }
+        .form-submit:hover { background: #555; }
  
         .form-success {
             display: none;
@@ -127,7 +128,7 @@
             font-family: var(--serif);
             font-size: 26px;
             font-style: italic;
-            color: var(--saffron);
+            color: rgba(255,255,255,0.5);
             line-height: 1.4;
         }
  
@@ -143,7 +144,7 @@
 </head>
 <body>
  
-<!--Header-->
+<!-- ════ HEADER ════ -->
 <header class="site-header" id="site-header">
     <div class="header-inner">
         <nav class="nav-left">
@@ -170,21 +171,21 @@
 </nav>
  
  
-<!--Contact Body-->
 <main class="contact-page">
  
     <div class="contact-left fade-in">
         <p class="contact-eyebrow">Get in Touch</p>
         <h1>We'd love<br>to hear from you.</h1>
-        <p>Whether you have a question about the bag, want to inquire about a custom order, or simply want to say hello — please do reach out and we'll get back to you promptly.</p>
+        <p>Whether you have a question about the bag, want to inquire about a custom order, or simply want to say hello — reach out and we'll get back to you promptly.</p>
         <div class="contact-info">
-            <a href="mailto:elikavbb@icloud.com">Email</a>
-            <a href="https://www.instagram.com/lalablueofficial/">Instagram</a>
+            <a href="mailto:hello@lalablue.com">hello@lalablue.com</a>
+            <a href="#">Instagram</a>
         </div>
     </div>
  
     <div class="contact-right fade-up d1">
         <h2>Send a message</h2>
+ 
         <div id="contact-form">
             <div class="form-row">
                 <div class="form-group">
@@ -205,7 +206,7 @@
             <div class="form-group">
                 <label for="subject">Subject</label>
                 <select id="subject">
-                    <option value="">Select a topic:</option>
+                    <option value="">Select a topic…</option>
                     <option value="product">Product Question</option>
                     <option value="order">Order Inquiry</option>
                     <option value="custom">Custom Order</option>
@@ -223,16 +224,14 @@
             <button class="form-submit" onclick="submitForm()">Send Message</button>
         </div>
  
-        <!--Form submission success message-->
         <div class="form-success" id="form-success">
-            Thank you —<br>we'll be in touch soon.
+            Thank you!<br>we'll be in touch soon.
         </div>
     </div>
  
 </main>
  
  
-<!--Footer-->
 <footer class="site-footer">
     <div class="footer-inner">
         <div class="footer-brand">
@@ -248,7 +247,7 @@
         </nav>
         <div class="footer-right">
             <div class="footer-social">
-                <a href="https://www.instagram.com/lalablueofficial/" aria-label="Instagram">Instagram</a>
+                <a href="#" aria-label="Instagram">Instagram</a>
                 <a href="#" aria-label="Pinterest">Pinterest</a>
             </div>
             <p class="footer-copy">© 2026 Lala Blue. All rights reserved.</p>
@@ -258,6 +257,70 @@
 </footer>
  
  
-<script src="js/email.js"></script>
+<script>
+
+const header = document.getElementById('site-header');
+window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 20);
+});
+ 
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobile-nav');
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+});
+ 
+
+function submitForm() {
+    const fname   = document.getElementById('fname').value.trim();
+    const email   = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+ 
+    if (!email) {
+        alert('Please enter your email address.');
+        return;
+    }
+    if (!message) {
+        alert('Please enter a message.');
+        return;
+    }
+
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+ 
+   fetch('https://formspree.io/f/mreoqvzo', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name: fname + ' ' + document.getElementById('lname').value,
+                email: email,
+                subject: document.getElementById('subject').value,
+                message: message
+            })
+        }).then(res => {
+            if (res.ok) {
+                document.getElementById('contact-form').style.display = 'none';
+                document.getElementById('form-success').style.display = 'block';
+            }
+        });
+}
+ 
+// Scroll-triggered fade animations
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            e.target.style.animationPlayState = 'running';
+            observer.unobserve(e.target);
+        }
+    });
+}, { threshold: 0.1 });
+ 
+document.querySelectorAll('.fade-up, .fade-in').forEach(el => {
+    el.style.animationPlayState = 'paused';
+    observer.observe(el);
+});
+</script>
+ 
 </body>
 </html>

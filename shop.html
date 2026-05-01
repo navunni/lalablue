@@ -71,14 +71,6 @@
             .product-grid { grid-template-columns: 1fr; }
             .shop-header-section, .shop-grid-section { padding-left: 24px; padding-right: 24px; }
         }
-
-        #collection-component-1774905433838 {
-            padding: 0 52px;
-        }
-        #collection-component-1774905433838 iframe {
-            width: 100% !important;
-        }
-        
     </style>
 </head>
 <body>
@@ -112,16 +104,29 @@
  
 <section class="shop-grid-section">
     <div class="shop-inner">
+ 
+        <!-- ═══════════════════════════════════════════════════
+             SHOPIFY COLLECTION EMBED
+             New products Elika adds in Shopify appear here
+             automatically — no code changes needed.
+        ════════════════════════════════════════════════════ -->
         <div id='collection-component-1774905433838'></div>
+ 
     </div>
 </section>
-
+ 
 <script type="text/javascript">
 (function () {
   var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
   if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) { ShopifyBuyInit(); } else { loadScript(); }
-  } else { loadScript(); }
+    if (window.ShopifyBuy.UI) {
+      ShopifyBuyInit();
+    } else {
+      loadScript();
+    }
+  } else {
+    loadScript();
+  }
   function loadScript() {
     var script = document.createElement('script');
     script.async = true;
@@ -162,6 +167,9 @@
           },
           "modalProduct": {
             "contents": { "img": false, "imgWithCarousel": true, "button": false, "buttonWithQuantity": true },
+            "styles": {
+              "product": { "@media (min-width: 601px)": { "max-width": "100%", "margin-left": "0px", "margin-bottom": "0px" } }
+            },
             "text": { "button": "Add to Bag" }
           },
           "option": {},
@@ -200,7 +208,7 @@
         </nav>
         <div class="footer-right">
             <div class="footer-social">
-                <a href="https://www.instagram.com/lalablueofficial/">Instagram</a>
+                <a href="#">Instagram</a>
                 <a href="#">Pinterest</a>
             </div>
             <p class="footer-copy">© 2026 Lala Blue. All rights reserved.</p>
@@ -209,6 +217,16 @@
     </div>
 </footer>
  
+<script>
+const header = document.getElementById('site-header');
+window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobile-nav');
+hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileNav.classList.toggle('open'); });
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.style.animationPlayState='running'; observer.unobserve(e.target); }});
+}, {threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el => { el.style.animationPlayState='paused'; observer.observe(el); });
 </script>
 </body>
 </html>

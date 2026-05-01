@@ -1,38 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
-
+ 
 :root {
-    --bg: #f7f5f0;
-    --bg-alt: #eeeae2;
-    --bg-dark: #1c1b18;
-    --text: #2a2926;
-    --text-inv: #f7f5f0;
-    --muted: #8a8880;
-    --border: #dddad2;
-    --border-dark: #38362f;
-    --accent: #2a2926;
-    --saffron: #c8860a;
-
+    --bg:          #ffffff;
+    --bg-alt:      #f5f5f5;
+    --bg-dark:     #0a0a0a;
+    --text:        #0a0a0a;
+    --text-inv:    #ffffff;
+    --muted:       #6b6b6b;
+    --border:      #e0e0e0;
+    --border-dark: #222222;
+    --accent:      #0a0a0a;
+    --saffron:     #0a0a0a;
+ 
     --max-width: 1360px;
-    --header-h: 64px;
-
-    --sans: 'Jost', sans-serif;
+    --header-h:  64px;
+ 
+    --sans:  'Jost', sans-serif;
     --serif: 'Cormorant Garamond', serif;
-
-    --nav-size: 11px;
-    --body-size: 15px;
+ 
+    --nav-size:   11px;
+    --body-size:  15px;
     --title-size: clamp(40px, 5.5vw, 74px);
-    
+ 
     --spacing-xl: 140px;
     --spacing-lg: 96px;
     --spacing-md: 56px;
     --spacing-sm: 32px;
-
+ 
     --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box;}
-html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth;}
-
+ 
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+ 
 body {
     font-family: var(--sans);
     font-weight: 300;
@@ -41,22 +41,21 @@ body {
     font-size: var(--body-size);
     line-height: 1.7;
 }
-
+ 
 img { width: 100%; height: 100%; display: block; object-fit: cover; }
 a { text-decoration: none; color: inherit; }
-ul { list-style: none;}
+ul { list-style: none; }
 button, input, textarea, select { font-family: inherit; font-size: inherit; }
-
+ 
 @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(22px);}
-    to { opacity: 1; transform: translateY(0);}
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes fadeIn {
     from { opacity: 0; }
-    to { opacity: 1; }
+    to   { opacity: 1; }
 }
-
+ 
 .fade-up { animation: fadeUp 0.9s var(--ease) both; }
 .fade-in { animation: fadeIn 1.2s var(--ease) both; }
 .d1 { animation-delay: 0.08s; }
