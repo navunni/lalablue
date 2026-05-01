@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gammon Bag in Orange — Lala Blue</title>
+    <meta name="description" content="The Gammon Bag in Orange. Grained leather shoulder bag with gold brass buckles. Made in USA. $495.">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <style>
+        #shopify-buy-btn-container { display:flex; justify-content:flex-start; width:100%; }
+        #shopify-buy-btn-container iframe { width:100% !important; max-width:100% !important; }
+        .color-swatches { display:flex; gap:12px; margin-bottom:32px; align-items:center; }
+        .swatch-label { font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); margin-right:4px; }
+        .swatch {
+            width:24px; height:24px; border-radius:50%;
+            border:2px solid transparent;
+            cursor:pointer; transition:border-color 0.2s;
+            text-decoration:none; display:block;
+        }
+        .swatch:hover, .swatch.active { border-color:var(--text); }
+        .swatch-orange { background:#d4502a; }
+        .swatch-navy   { background:#1a2744; }
+        .swatch-bronze { background:#6b5a3e; }
+        .swatch-black  { background:#1a1a1a; }
+    </style>
+</head>
+<body>
+ 
+<header class="site-header" id="site-header">
+    <div class="header-inner">
+        <nav class="nav-left">
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="logo"><a href="index.html"><span class="logo-text">Lala Blue</span></a></div>
+        <nav class="nav-right"><ul><li><a href="shop.html">Shop Now</a></li></ul></nav>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+</header>
+<nav class="mobile-nav" id="mobile-nav">
+    <a href="about.html">About</a><a href="shop.html">Shop</a><a href="contact.html">Contact</a>
+</nav>
+ 
+<section class="product-spotlight" style="margin-top:var(--header-h)">
+    <div class="spotlight-inner">
+ 
+        <div class="spotlight-gallery">
+            <div class="gallery-main">
+                <img src="assets/images/orange/front.jpg" alt="The Gammon Bag in Orange — front view" id="main-img">
+            </div>
+            <div class="gallery-thumb" onclick="swapImage('assets/images/orange/detail.jpg','Hardware detail')">
+                <img src="assets/images/orange/detail.jpg" alt="Hardware detail">
+            </div>
+            <div class="gallery-thumb" onclick="swapImage('assets/images/orange/cross-strap.jpg','Crossed straps')">
+                <img src="assets/images/orange/cross-strap.jpg" alt="Crossed straps">
+            </div>
+            <div class="gallery-thumb" onclick="swapImage('assets/images/orange/interior-zip.jpg','Interior with zip pocket')">
+                <img src="assets/images/orange/interior-zip.jpg" alt="Interior zip">
+            </div>
+            <div class="gallery-thumb" onclick="swapImage('assets/images/orange/interior-top.jpg','Interior open — top view')">
+                <img src="assets/images/orange/interior-top.jpg" alt="Interior top">
+            </div>
+        </div>
+ 
+        <div class="spotlight-info">
+            <p class="product-eyebrow">Lala Blue — The Gammon Bag</p>
+            <h2 class="product-title">Orange</h2>
+            <p class="product-price-display">$495.00 USD</p>
+ 
+            <div class="color-swatches">
+                <span class="swatch-label">Color</span>
+                <a href="gammon-orange.html" class="swatch swatch-orange active" title="Orange"></a>
+                <a href="gammon-navy.html"   class="swatch swatch-navy"   title="Navy"></a>
+                <a href="gammon-bronze.html" class="swatch swatch-bronze" title="Bronze"></a>
+                <a href="index.html#product" class="swatch swatch-black"  title="Black"></a>
+            </div>
+ 
+            <p class="product-desc">
+                Grained leather shoulder bag adorned with gold brass buckles, two way zipper,
+                and tubular handles, with signature Lala Blue embossing. Made in USA.
+            </p>
+ 
+            <div class="details-section">
+                <div class="detail-row" onclick="toggleDetail(this)">
+                    <span class="detail-label">Details</span>
+                    <span class="detail-toggle">+</span>
+                </div>
+                <div class="detail-body">
+                    <ul>
+                        <li>Width: 34 cm | 13.38 in</li>
+                        <li>Height: 14 cm | 5.51 in</li>
+                        <li>Depth: 11 cm | 4.33 in</li>
+                        <li>Handle Drop: 28 cm | 11.02 in</li>
+                        <li>Grained calfskin exterior in Orange</li>
+                        <li>Gold brass hardware throughout</li>
+                        <li>Two way zipper closure</li>
+                        <li>Tubular shoulder handles + removable crossbody strap</li>
+                        <li>Interior zip pocket + open slip pockets</li>
+                        <li>Signature Lala Blue embossing</li>
+                        <li>Made in USA</li>
+                    </ul>
+                </div>
+                <div class="detail-row" onclick="toggleDetail(this)">
+                    <span class="detail-label">Product Care</span>
+                    <span class="detail-toggle">+</span>
+                </div>
+                <div class="detail-body">
+                    <ul>
+                        <li>Avoid contact with water, perfumes, oils, and chemical substances.</li>
+                        <li>Avoid contact with rough or abrasive surfaces.</li>
+                        <li>Do not expose to direct heat or humidity for long periods.</li>
+                        <li>If wet, gently pat dry. Avoid excessive rubbing.</li>
+                        <li>Store in protective dust bag, padded with tissue paper to maintain shape.</li>
+                    </ul>
+                </div>
+                <div class="detail-row" onclick="toggleDetail(this)">
+                    <span class="detail-label">Shipping & Returns</span>
+                    <span class="detail-toggle">+</span>
+                </div>
+                <div class="detail-body">
+                    <p style="margin-bottom:10px"><strong>Shipping</strong></p>
+                    <p style="margin-bottom:12px">Pre-orders accepted. Email notification when shipped.</p>
+                    <p style="margin-bottom:10px"><strong>Returns</strong></p>
+                    <p>No returns or exchanges at this time. <a href="contact.html" style="text-decoration:underline;text-underline-offset:3px;">Contact us</a> with any questions.</p>
+                </div>
+            </div>
+ 
+            <!-- SHOPIFY: Replace with Orange colorway Buy Button embed -->
+            <div id="shopify-buy-btn-container">
+                <button class="add-to-cart" onclick="window.open('https://lalablue.com/products/the-gammon-bag','_blank')">
+                    Add to Bag — $495
+                </button>
+            </div>
+            <a href="contact.html" class="inquiry-link">Have a question? Contact us.</a>
+        </div>
+    </div>
+</section>
+ 
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <span class="logo-text">Lala Blue</span>
+            <p class="footer-tagline">Handcrafted leather goods.</p>
+        </div>
+        <nav class="footer-nav">
+            <a href="about.html">About</a>
+            <a href="shop.html">Shop</a>
+            <a href="contact.html">Contact</a>
+            <a href="shipping-returns.html">Shipping &amp; Returns</a>
+        </nav>
+        <div class="footer-right">
+            <div class="footer-social">
+                <a href="https://www.instagram.com/lalablueofficial/">Instagram</a>
+            </div>
+            <p class="footer-copy">© 2026 Lala Blue. All rights reserved.</p>
+        </div>
+        <hr class="footer-divider">
+    </div>
+</footer>
+ 
+<script src="js/main.js"></script>
+</body>
+</html>
