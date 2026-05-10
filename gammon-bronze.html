@@ -4,41 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Gammon Bag in Bronze — Lala Blue</title>
-    <meta name="description" content="The Gammon Bag in Bronze. Pre-order now. $545.">
+    <meta name="description" content="The Gammon Bag in Bronze. Pre-order now. $545.00.">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <style>
-        .logo-video-wrap { position:relative; width:80px; height:80px; display:flex; align-items:center; justify-content:center; }
-        .logo-spin-video { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; opacity:0; transition:opacity 0.4s ease; }
+        .logo-video-wrap { position:relative; width:140px; height:40px; display:flex; align-items:center; justify-content:center; }
+        .logo-spin-video { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; opacity:0; transition:opacity 0.4s ease; width:40px; height:40px; margin:auto; }
         .logo-wordmark { font-family:var(--serif); font-size:28px; font-weight:300; font-style:italic; letter-spacing:0.07em; color:var(--text); transition:opacity 0.4s ease; white-space:nowrap; position:absolute; }
         .logo:hover .logo-spin-video { opacity:1; }
         .logo:hover .logo-wordmark { opacity:0; }
+        @media (max-width:900px) { .logo-video-wrap { width:120px; height:36px; } .logo-wordmark { font-size:22px; } }
 
         .product-page { margin-top:var(--header-h); display:grid; grid-template-columns:1fr 1fr; min-height:calc(100vh - var(--header-h)); }
-
         .photo-scroll { overflow-y:auto; height:calc(100vh - var(--header-h)); position:sticky; top:var(--header-h); }
         .photo-scroll::-webkit-scrollbar { display:none; }
-        .photo-item { width:100%; aspect-ratio:4/5; overflow:hidden; background:#f0f0f0; }
-        .photo-item img { width:100%; height:100%; object-fit:cover; display:block; }
-
-        .product-info-panel { position:sticky; top:var(--header-h); height:calc(100vh - var(--header-h)); overflow-y:auto; padding:52px 52px 52px 64px; display:flex; flex-direction:column; justify-content:center; background:var(--bg-dark); color:var(--text-inv); }
+        .photo-item { width:100%; aspect-ratio:4/5; overflow:hidden; background:#ffffff; display:flex; align-items:center; justify-content:center; }
+        .photo-item img { width:100%; height:100%; object-fit:contain; display:block; }
+        .product-info-panel { position:sticky; top:var(--header-h); height:calc(100vh - var(--header-h)); overflow-y:auto; padding:80px 52px 52px 64px; display:flex; flex-direction:column; justify-content:flex-start; overflow-y:auto; background:var(--bg-dark); color:var(--text-inv); }
         .product-info-panel::-webkit-scrollbar { display:none; }
-
         .product-eyebrow { font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:16px; }
         .product-title { font-family:var(--serif); font-size:clamp(36px,4vw,58px); font-weight:300; font-style:italic; line-height:1.05; margin-bottom:6px; color:var(--text-inv); }
         .product-colorname { font-family:var(--serif); font-size:clamp(20px,2vw,28px); font-weight:300; font-style:italic; color:rgba(255,255,255,0.55); margin-bottom:24px; }
         .product-price-display { font-size:20px; font-weight:300; letter-spacing:0.04em; color:var(--text-inv); margin-bottom:12px; }
         .preorder-badge { display:inline-block; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; background:rgba(255,255,255,0.1); color:rgba(255,255,255,0.75); padding:5px 14px; margin-bottom:32px; border:1px solid rgba(255,255,255,0.18); }
         .product-desc { font-size:14px; color:rgba(255,255,255,0.55); line-height:1.85; margin-bottom:32px; max-width:380px; }
-
         .color-swatches { display:flex; gap:12px; margin-bottom:32px; align-items:center; }
         .swatch-label { font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-right:4px; }
         .swatch { width:22px; height:22px; border-radius:50%; border:2px solid transparent; cursor:pointer; transition:border-color 0.2s; text-decoration:none; display:block; }
         .swatch:hover, .swatch.active { border-color:rgba(255,255,255,0.8); }
+        .swatch-orange { background:#d4502a; }
+        .swatch-navy { background:#1a2744; }
         .swatch-bronze { background:#6b5a3e; }
-        .swatch-navy   { background:#1a2744; }
-        .swatch-bronze { background:#6b5a3e; }
-
+        .swatch-black  { background:#1a1a1a; }
         .details-section { margin-bottom:32px; }
         .detail-row { display:flex; justify-content:space-between; align-items:center; padding:13px 0; border-top:1px solid rgba(255,255,255,0.1); cursor:pointer; }
         .detail-row:last-child { border-bottom:1px solid rgba(255,255,255,0.1); }
@@ -49,27 +46,18 @@
         .detail-body p, .detail-body li { font-size:13px; color:rgba(255,255,255,0.5); line-height:1.9; }
         .detail-body ul { padding-left:16px; list-style:disc; }
         .detail-body a { color:rgba(255,255,255,0.65); text-decoration:underline; text-underline-offset:3px; }
-
         .preorder-btn { display:block; width:100%; padding:16px; text-align:center; background:var(--text-inv); color:var(--bg-dark); border:none; font-family:var(--sans); font-size:11px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; cursor:pointer; text-decoration:none; transition:background 0.28s; margin-bottom:14px; }
         .preorder-btn:hover { background:rgba(255,255,255,0.85); }
         .inquiry-link { display:block; text-align:center; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.35); text-decoration:underline; text-underline-offset:3px; transition:color 0.2s; }
         .inquiry-link:hover { color:rgba(255,255,255,0.75); }
-
-        @media (max-width:900px) {
-            .product-page { grid-template-columns:1fr; }
-            .photo-scroll { height:auto; position:static; }
-            .photo-item { aspect-ratio:1/1; }
-            .product-info-panel { position:static; height:auto; padding:48px 24px; }
-            .logo-video-wrap { width:56px; height:56px; }
-            .logo-wordmark { font-size:22px; }
-        }
+        @media (max-width:900px) { .product-page { grid-template-columns:1fr; } .photo-scroll { height:auto; position:static; } .photo-item { aspect-ratio:1/1; } .product-info-panel { position:static; height:auto; padding:48px 24px; } }
     </style>
 </head>
 <body>
 
 <header class="site-header" id="site-header">
     <div class="header-inner">
-        <nav class="nav-left">
+                <nav class="nav-left">
             <ul>
                 <li><a href="about.html">About</a></li>
                 <li><a href="shop.html">Shop</a></li>
@@ -87,7 +75,9 @@
                 </div>
             </a>
         </div>
-        <nav class="nav-right"><ul><li><a href="shop.html">Shop Now</a></li></ul></nav>
+                <nav class="nav-right">
+            <ul><li><a href="index.html">← Home</a></li></ul>
+        </nav>
         <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
     </div>
 </header>
@@ -102,27 +92,23 @@
         <div class="photo-item"><img src="assets/images/bronze/front.jpg" alt="Bronze — front"></div>
         <div class="photo-item"><img src="assets/images/bronze/detail.jpg" alt="Bronze — detail"></div>
         <div class="photo-item"><img src="assets/images/bronze/cross-strap.jpg" alt="Bronze — straps"></div>
-        <div class="photo-item"><img src="assets/images/bronze/interior-zip.jpg" alt="Bronze — interior zip"></div>
         <div class="photo-item"><img src="assets/images/bronze/interior-open.jpg" alt="Bronze — interior open"></div>
         <div class="photo-item"><img src="assets/images/bronze/interior-top.jpg" alt="Bronze — top view"></div>
     </div>
-
     <div class="product-info-panel">
         <p class="product-eyebrow">Lala Blue — The Gammon Bag</p>
         <h1 class="product-title">The Gammon<br>Bag</h1>
         <p class="product-colorname">Bronze</p>
         <p class="product-price-display">$545.00 USD</p>
         <span class="preorder-badge">Pre-Order Now</span>
-
         <div class="color-swatches">
             <span class="swatch-label">Color</span>
+            <a href="gammon-orange.html" class="swatch swatch-orange" title="Orange"></a>
+            <a href="gammon-navy.html" class="swatch swatch-navy" title="Navy"></a>
             <a href="gammon-bronze.html" class="swatch swatch-bronze active" title="Bronze"></a>
-            <a href="gammon-navy.html"   class="swatch swatch-navy"   title="Navy"></a>
-            <a href="gammon-bronze.html" class="swatch swatch-bronze" title="Bronze"></a>
+            <a href="gammon-black.html" class="swatch swatch-black" title="Black"></a>
         </div>
-
-        <p class="product-desc">Soft grained leather shoulder bag with a light shine adorned with gold brass buckles, two way zipper, and tubular handles, with signature Lala Blue embossing. Made in USA.</p>
-
+        <p class="product-desc">Soft grained leather with a light shine, adorned with gold brass buckles, two way zipper, and tubular handles, with signature Lala Blue embossing. Made in USA.</p>
         <div class="details-section">
             <div class="detail-row" onclick="toggleDetail(this)">
                 <span class="detail-label">Details</span>
@@ -157,7 +143,7 @@
                 </ul>
             </div>
             <div class="detail-row" onclick="toggleDetail(this)">
-                <span class="detail-label">Shipping & Returns</span>
+                <span class="detail-label">Shipping &amp; Returns</span>
                 <span class="detail-toggle">+</span>
             </div>
             <div class="detail-body">
@@ -168,11 +154,34 @@
                 <p>No returns or exchanges. <a href="contact.html">Contact us</a> with any questions.</p>
             </div>
         </div>
-
         <a href="contact.html" class="preorder-btn">Pre-Order — $545.00</a>
         <a href="contact.html" class="inquiry-link">Have a question? Contact us.</a>
     </div>
 </div>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <span class="logo-text">Lala Blue</span>
+            <p class="footer-tagline">Handcrafted leather goods.</p>
+        </div>
+        <nav class="footer-nav">
+            <a href="about.html">About</a>
+            <a href="shop.html">Shop</a>
+            <a href="contact.html">Contact</a>
+            <a href="shipping-returns.html">Shipping &amp; Returns</a>
+            <a href="shipping-returns.html#privacy">Privacy Policy</a>
+        </nav>
+        <div class="footer-right">
+            <div class="footer-social">
+                <a href="https://www.instagram.com/lalablueofficial/" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://www.pinterest.com/lalablueofficial/" target="_blank" rel="noopener">Pinterest</a>
+            </div>
+            <p class="footer-copy">© 2026 Lala Blue. All rights reserved.</p>
+        </div>
+        <hr class="footer-divider">
+    </div>
+</footer>
 
 <script src="js/main.js"></script>
 </body>
