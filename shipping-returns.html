@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shipping & Returns — Lala Blue</title>
-    <meta name="description" content="Lala Blue shipping and return policy information.">
+    <meta name="description" content="Lala Blue shipping and return policy info.">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <style>
@@ -82,22 +82,6 @@
         @media (max-width: 600px) {
             .policy-page { padding: 64px 24px 100px; }
         }
-
-        .logo-video-wrap {
-            position: relative; width: 56px; height: 56px;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .logo-spin-video {
-            position: absolute; inset: 0; width: 100%; height: 100%;
-            object-fit: contain; opacity: 0; transition: opacity 0.4s ease;
-        }
-        .logo-wordmark {
-            font-family: var(--serif); font-size: 22px; font-weight: 300;
-            font-style: italic; letter-spacing: 0.07em; color: var(--text);
-            transition: opacity 0.4s ease; white-space: nowrap; position: absolute;
-        }
-        .logo:hover .logo-spin-video { opacity: 1; }
-        .logo:hover .logo-wordmark   { opacity: 0; }
     </style>
 </head>
 <body>
@@ -112,16 +96,7 @@
             </ul>
         </nav>
         <div class="logo">
-            <a href="index.html">
-                <div class="logo-video-wrap">
-                    <span class="logo-wordmark">Lala Blue</span>
-                    <video class="logo-spin-video" muted loop playsinline
-                        poster="assets/images/logo_poster.png" preload="none">
-                        <source src="assets/videos/logo-spin.webm" type="video/webm">
-                        <source src="assets/videos/logo-spin.mp4"  type="video/mp4">
-                    </video>
-                </div>
-            </a>
+            <a href="index.html"><span class="logo-text">Lala Blue</span></a>
         </div>
         <nav class="nav-right">
             <ul><li><a href="shop.html">Shop Now</a></li></ul>
@@ -150,11 +125,10 @@
             notification when your order has shipped.
         </p>
         <p>
-            Estimated time of shipping is approximately by the end of May 2025.
+            Estimated time of shipping is approximately by the end of July 2026.
         </p>
     </div>
 
-    <!-- RETURNS -->
     <div class="policy-block fade-up d4">
         <h2>Return Policy</h2>
         <p>
@@ -166,11 +140,19 @@
         </p>
     </div>
 
-    <div class="policy-block fade-up d5">
+    <div class="policy-block fade-up d5" id="privacy">
+        <h2>Privacy Policy</h2>
+        <p>Lala Blue collects only the information necessary to process your order — your name, email address, shipping address, and payment details. Payment information is processed securely through Shopify and Stripe and is never stored on our servers.</p>
+        <p>We do not sell, trade, or share your personal information with third parties except as required to fulfill your order (e.g. shipping carriers).</p>
+        <p>By placing an order or signing up for our newsletter, you agree to receive order-related emails from Lala Blue. You may unsubscribe from marketing emails at any time.</p>
+        <p>If you have any questions about how your data is handled, please <a href="contact.html">contact us</a>.</p>
+    </div>
+
+    <div class="policy-block fade-up" id="questions">
         <h2>Questions?</h2>
         <p>
             If you have any questions about your order, shipping, or anything else — 
-            we're happy to help. Please each out through the 
+            we're happy to help. Reach out through the 
             <a href="contact.html">contact page</a> and we'll get back to you promptly.
         </p>
     </div>
@@ -188,12 +170,12 @@
             <a href="shop.html">Shop</a>
             <a href="contact.html">Contact</a>
             <a href="shipping-returns.html">Shipping & Returns</a>
-            <a href="#">Privacy Policy</a>
+            <a href="shipping-returns.html#privacy">Privacy Policy</a>
         </nav>
         <div class="footer-right">
             <div class="footer-social">
-                <a href="#">Instagram</a>
-                <a href="#">Pinterest</a>
+                <a href="https://www.instagram.com/lalablueofficial/" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://www.pinterest.com/lalablueofficial/" target="_blank" rel="noopener">Pinterest</a>
             </div>
             <p class="footer-copy">© 2026 Lala Blue. All rights reserved.</p>
         </div>
