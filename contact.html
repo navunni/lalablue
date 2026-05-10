@@ -15,7 +15,7 @@
             grid-template-columns: 1fr 1fr;
             align-items: stretch;
         }
-
+ 
         .contact-left {
             background: var(--bg-dark);
             padding: 96px 64px;
@@ -140,22 +140,6 @@
         @media (max-width: 560px) {
             .contact-left, .contact-right { padding: 48px 24px; }
         }
-
-        .logo-video-wrap {
-            position: relative; width: 56px; height: 56px;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .logo-spin-video {
-            position: absolute; inset: 0; width: 100%; height: 100%;
-            object-fit: contain; opacity: 0; transition: opacity 0.4s ease;
-        }
-        .logo-wordmark {
-            font-family: var(--serif); font-size: 22px; font-weight: 300;
-            font-style: italic; letter-spacing: 0.07em; color: var(--text);
-            transition: opacity 0.4s ease; white-space: nowrap; position: absolute;
-        }
-        .logo:hover .logo-spin-video { opacity: 1; }
-        .logo:hover .logo-wordmark   { opacity: 0; }
     </style>
 </head>
 <body>
@@ -169,16 +153,7 @@
             </ul>
         </nav>
         <div class="logo">
-            <a href="index.html">
-                <div class="logo-video-wrap">
-                    <span class="logo-wordmark">Lala Blue</span>
-                    <video class="logo-spin-video" muted loop playsinline
-                        poster="assets/images/logo_poster.png" preload="none">
-                        <source src="assets/videos/logo-spin.webm" type="video/webm">
-                        <source src="assets/videos/logo-spin.mp4"  type="video/mp4">
-                    </video>
-                </div>
-            </a>
+            <a href="index.html"><span class="logo-text">Lala Blue</span></a>
         </div>
         <nav class="nav-right">
             <ul><li><a href="shop.html">Shop Now</a></li></ul>
@@ -194,19 +169,19 @@
     <a href="shop.html">Shop</a>
 </nav>
  
- 
+
 <main class="contact-page">
- 
+
     <div class="contact-left fade-in">
         <p class="contact-eyebrow">Get in Touch</p>
         <h1>We'd love<br>to hear from you.</h1>
-        <p>Whether you have a question about the bag, want to inquire about a custom order, or simply want to say hello — reach out and we'll get back to you promptly.</p>
+        <p>If you have a question about the bag, want to inquire about a custom order, or simply want to say hello — please do reach out and we'll get back to you promptly.</p>
         <div class="contact-info">
-            <a href="mailto:elikavbb@icloud.com">Email</a>
-            <a href="https://www.instagram.com/lalablueofficial/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="mailto:hello@lalablue.com">hello@lalablue.com</a>
+            <a href="https://www.instagram.com/lalablueofficial/" target="_blank" rel="noopener">Instagram</a>
         </div>
     </div>
- 
+
     <div class="contact-right fade-up d1">
         <h2>Send a message</h2>
  
@@ -230,7 +205,7 @@
             <div class="form-group">
                 <label for="subject">Subject</label>
                 <select id="subject">
-                    <option value="">Select a topic…</option>
+                    <option value="">Select a topic:</option>
                     <option value="product">Product Question</option>
                     <option value="order">Order Inquiry</option>
                     <option value="custom">Custom Order</option>
@@ -249,13 +224,13 @@
         </div>
  
         <div class="form-success" id="form-success">
-            Thank you!<br>we'll be in touch soon.
+            Thank you —<br>we'll be in touch soon.
         </div>
     </div>
  
 </main>
  
- 
+
 <footer class="site-footer">
     <div class="footer-inner">
         <div class="footer-brand">
@@ -267,12 +242,12 @@
             <a href="shop.html">Shop</a>
             <a href="contact.html">Contact</a>
             <a href="shipping-returns.html">Shipping &amp; Returns</a>
-            <a href="#">Privacy Policy</a>
+            <a href="shipping-returns.html#privacy">Privacy Policy</a>
         </nav>
         <div class="footer-right">
             <div class="footer-social">
-                <a href="#" aria-label="Instagram">Instagram</a>
-                <a href="#" aria-label="Pinterest">Pinterest</a>
+                <a href="https://www.instagram.com/lalablueofficial/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+                <a href="https://www.pinterest.com/lalablueofficial/" target="_blank" rel="noopener" aria-label="Pinterest">Pinterest</a>
             </div>
             <p class="footer-copy">© 2026 Lala Blue. All rights reserved.</p>
         </div>
@@ -288,6 +263,7 @@ window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 20);
 });
  
+
 const hamburger = document.getElementById('hamburger');
 const mobileNav = document.getElementById('mobile-nav');
 hamburger.addEventListener('click', () => {
@@ -309,28 +285,27 @@ function submitForm() {
         alert('Please enter a message.');
         return;
     }
-
+ 
     document.getElementById('contact-form').style.display = 'none';
     document.getElementById('form-success').style.display = 'block';
  
-   fetch('https://formspree.io/f/mreoqvzo', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                name: fname + ' ' + document.getElementById('lname').value,
-                email: email,
-                subject: document.getElementById('subject').value,
-                message: message
-            })
-        }).then(res => {
-            if (res.ok) {
-                document.getElementById('contact-form').style.display = 'none';
-                document.getElementById('form-success').style.display = 'block';
-            }
-        });
+    fetch('https://formspree.io/f/mreoqvzo', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            name: fname + ' ' + document.getElementById('lname').value,
+            email: email,
+            subject: document.getElementById('subject').value,
+            message: message
+        })
+    }).then(res => {
+        if (res.ok) {
+            document.getElementById('contact-form').style.display = 'none';
+            document.getElementById('form-success').style.display = 'block';
+        }
+    });
 }
  
-// Scroll-triggered fade animations
 const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
         if (e.isIntersecting) {
