@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop — Lala Blue</title>
-    <meta name="description" content="Shop Lala Blue. The Gammon Bag — available in Black, Orange, Navy and Bronze. $495.">
+    <meta name="description" content="Shop Lala Blue. The Gammon Bag — available in Orange, Navy and Bronze. Pre-order now. $545.">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <style>
+        .logo-video-wrap { position:relative; width:80px; height:80px; display:flex; align-items:center; justify-content:center; }
+        .logo-spin-video { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; opacity:0; transition:opacity 0.4s ease; }
+        .logo-wordmark { font-family:var(--serif); font-size:28px; font-weight:300; font-style:italic; letter-spacing:0.07em; color:var(--text); transition:opacity 0.4s ease; white-space:nowrap; position:absolute; }
+        .logo:hover .logo-spin-video { opacity:1; }
+        .logo:hover .logo-wordmark { opacity:0; }
+ 
         .shop-header-section {
             margin-top: var(--header-h);
             padding: 72px 52px 48px;
@@ -22,71 +28,40 @@
             font-size: 13px; color: var(--muted);
             margin-top: 8px; letter-spacing: 0.04em;
         }
-        .shop-grid-section {
-            padding: var(--spacing-lg) 52px;
-        }
-        .shop-inner {
-            max-width: var(--max-width);
-            margin: 0 auto;
-        }
+        .shop-grid-section { padding: var(--spacing-lg) 52px; }
+        .shop-inner { max-width: var(--max-width); margin: 0 auto; }
+ 
         .colorway-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 28px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
         }
-        .colorway-card {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-        }
+        .colorway-card { display:block; text-decoration:none; color:inherit; }
         .colorway-card-img {
-            aspect-ratio: 3/4;
-            overflow: hidden;
-            background: #f5f5f5;
-            margin-bottom: 16px;
+            aspect-ratio: 3/4; overflow:hidden;
+            background: #f5f5f5; margin-bottom:16px;
+            position: relative;
         }
-        .colorway-card-img img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
+        .colorway-card-img img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease; }
+        .colorway-card:hover .colorway-card-img img { transform:scale(1.04); }
+        .preorder-tag {
+            position:absolute; top:14px; left:14px;
+            font-size:9px; letter-spacing:0.18em; text-transform:uppercase;
+            background:var(--text); color:var(--text-inv);
+            padding:4px 10px;
         }
-        .colorway-card:hover .colorway-card-img img {
-            transform: scale(1.04);
-        }
-        .colorway-name {
-            font-size: 11px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 4px;
-        }
-        .colorway-price {
-            font-size: 13px;
-            color: var(--muted);
-        }
+        .colorway-name { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px; }
+        .colorway-price { font-size:13px; color:var(--muted); }
  
-        @media (max-width: 900px) {
-            .colorway-grid { grid-template-columns: repeat(2, 1fr); }
+        @media (max-width:900px) { .colorway-grid { grid-template-columns:repeat(2,1fr); } }
+        @media (max-width:560px) {
+            .colorway-grid { grid-template-columns:1fr 1fr; gap:16px; }
+            .shop-header-section, .shop-grid-section { padding-left:24px; padding-right:24px; }
         }
-        @media (max-width: 560px) {
-            .colorway-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-            .shop-header-section,
-            .shop-grid-section { padding-left: 24px; padding-right: 24px; }
+        @media (max-width:900px) {
+            .logo-video-wrap { width:56px; height:56px; }
+            .logo-wordmark { font-size:22px; }
         }
-        .logo-video-wrap {
-            position: relative; width: 56px; height: 56px;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .logo-spin-video {
-            position: absolute; inset: 0; width: 100%; height: 100%;
-            object-fit: contain; opacity: 0; transition: opacity 0.4s ease;
-        }
-        .logo-wordmark {
-            font-family: var(--serif); font-size: 22px; font-weight: 300;
-            font-style: italic; letter-spacing: 0.07em; color: var(--text);
-            transition: opacity 0.4s ease; white-space: nowrap; position: absolute;
-        }
-        .logo:hover .logo-spin-video { opacity: 1; }
-        .logo:hover .logo-wordmark   { opacity: 0; }
     </style>
 </head>
 <body>
@@ -103,73 +78,62 @@
             <a href="index.html">
                 <div class="logo-video-wrap">
                     <span class="logo-wordmark">Lala Blue</span>
-                    <video class="logo-spin-video" muted loop playsinline
-                        poster="assets/images/logo_poster.png" preload="none">
+                    <video class="logo-spin-video" muted loop playsinline poster="assets/images/logo-poster.png" preload="none">
                         <source src="assets/videos/logo-spin.webm" type="video/webm">
-                        <source src="assets/videos/logo-spin.mp4"  type="video/mp4">
+                        <source src="assets/videos/logo-spin.mp4" type="video/mp4">
                     </video>
                 </div>
             </a>
         </div>
-        <nav class="nav-right">
-            <ul><li><a href="index.html">← Home</a></li></ul>
-        </nav>
+        <nav class="nav-right"><ul><li><a href="index.html">← Home</a></li></ul></nav>
         <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
     </div>
 </header>
- 
 <nav class="mobile-nav" id="mobile-nav">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
 </nav>
  
- 
 <section class="shop-header-section">
     <h1 class="fade-up">The Gammon Bag</h1>
+    <p class="fade-up d1">3 colorways · Pre-order available · $545.00 USD</p>
 </section>
- 
  
 <section class="shop-grid-section">
     <div class="shop-inner">
         <div class="colorway-grid">
  
-            <a href="gammon-black.html" class="colorway-card fade-up">
-                <div class="colorway-card-img">
-                    <img src="assets/images/product-front.jpg" alt="The Gammon Bag in Black">
-                </div>
-                <p class="colorway-name">Black</p>
-                <p class="colorway-price">$495.00</p>
-            </a>
- 
-            <a href="gammon-orange.html" class="colorway-card fade-up d1">
+            <a href="gammon-orange.html" class="colorway-card fade-up">
                 <div class="colorway-card-img">
                     <img src="assets/images/orange/front.jpg" alt="The Gammon Bag in Orange">
+                    <span class="preorder-tag">Pre-Order</span>
                 </div>
                 <p class="colorway-name">Orange</p>
-                <p class="colorway-price">$495.00</p>
+                <p class="colorway-price">$545.00</p>
             </a>
  
-            <a href="gammon-navy.html" class="colorway-card fade-up d2">
+            <a href="gammon-navy.html" class="colorway-card fade-up d1">
                 <div class="colorway-card-img">
                     <img src="assets/images/navy/front.jpg" alt="The Gammon Bag in Navy">
+                    <span class="preorder-tag">Pre-Order</span>
                 </div>
                 <p class="colorway-name">Navy</p>
-                <p class="colorway-price">$495.00</p>
+                <p class="colorway-price">$545.00</p>
             </a>
  
-            <a href="gammon-bronze.html" class="colorway-card fade-up d3">
+            <a href="gammon-bronze.html" class="colorway-card fade-up d2">
                 <div class="colorway-card-img">
                     <img src="assets/images/bronze/front.jpg" alt="The Gammon Bag in Bronze">
+                    <span class="preorder-tag">Pre-Order</span>
                 </div>
                 <p class="colorway-name">Bronze</p>
-                <p class="colorway-price">$495.00</p>
+                <p class="colorway-price">$545.00</p>
             </a>
  
         </div>
     </div>
 </section>
- 
  
 <section class="newsletter">
     <div class="newsletter-inner fade-up">
@@ -184,7 +148,6 @@
     </div>
 </section>
  
- 
 <footer class="site-footer">
     <div class="footer-inner">
         <div class="footer-brand">
@@ -196,19 +159,18 @@
             <a href="shop.html">Shop</a>
             <a href="contact.html">Contact</a>
             <a href="shipping-returns.html">Shipping &amp; Returns</a>
-            <a href="#">Privacy Policy</a>
+            <a href="shipping-returns.html#privacy">Privacy Policy</a>
         </nav>
         <div class="footer-right">
             <div class="footer-social">
-                <a href="https://www.instagram.com/lalablueofficial/">Instagram</a>
-                <a href="#">Pinterest</a>
+                <a href="https://www.instagram.com/lalablueofficial/" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://www.pinterest.com/lalablueofficial/" target="_blank" rel="noopener">Pinterest</a>
             </div>
             <p class="footer-copy">© 2026 Lala Blue. All rights reserved.</p>
         </div>
         <hr class="footer-divider">
     </div>
 </footer>
- 
  
 <script src="js/shop.js"></script>
 </body>
