@@ -8,13 +8,7 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <style>
-        .logo-video-wrap { position:relative; width:140px; height:40px; display:flex; align-items:center; justify-content:center; }
-        .logo-spin-video { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; opacity:0; transition:opacity 0.4s ease; width:40px; height:40px; margin:auto; }
-        .logo-wordmark { font-family:var(--serif); font-size:28px; font-weight:300; font-style:italic; letter-spacing:0.07em; color:var(--text); transition:opacity 0.4s ease; white-space:nowrap; position:absolute; }
-        .logo:hover .logo-spin-video { opacity:1; }
-        .logo:hover .logo-wordmark { opacity:0; }
-        @media (max-width:900px) { .logo-video-wrap { width:120px; height:36px; } .logo-wordmark { font-size:22px; } }
-
+        .logo-text { font-family: var(--serif); font-size: 26px; font-weight: 300; font-style: italic; letter-spacing: 0.07em; color: var(--text); }
         .shop-header-section { margin-top:var(--header-h); padding:72px 52px 48px; border-bottom:1px solid var(--border); }
         .shop-header-section h1 { font-family:var(--serif); font-size:clamp(32px,4vw,56px); font-weight:300; font-style:italic; }
         .shop-header-section p { font-size:13px; color:var(--muted); margin-top:8px; letter-spacing:0.04em; }
@@ -28,15 +22,21 @@
         .preorder-tag { position:absolute; top:14px; left:14px; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; background:var(--text); color:var(--text-inv); padding:4px 10px; }
         .colorway-name { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px; }
         .colorway-price { font-size:13px; color:var(--muted); }
+        .newsletter { background: var(--bg-alt) !important; }
+        .newsletter h3 { color: var(--text) !important; }
+        .newsletter p { color: var(--muted) !important; }
+        .newsletter-form input { color: var(--text) !important; }
+        .newsletter-form input::placeholder { color: var(--muted) !important; }
+        .newsletter-form button { color: var(--text) !important; }
+        .newsletter-form { border-bottom-color: var(--border) !important; }
         @media (max-width:900px) { .colorway-grid { grid-template-columns:repeat(2,1fr); } }
         @media (max-width:560px) { .colorway-grid { grid-template-columns:1fr 1fr; gap:16px; } .shop-header-section, .shop-grid-section { padding-left:24px; padding-right:24px; } }
     </style>
 </head>
 <body>
-
 <header class="site-header" id="site-header">
     <div class="header-inner">
-                <nav class="nav-left">
+        <nav class="nav-left">
             <ul>
                 <li><a href="about.html">About</a></li>
                 <li><a href="shop.html">Shop</a></li>
@@ -44,20 +44,16 @@
             </ul>
         </nav>
         <div class="logo">
-            <a href="index.html">
-                <div class="logo-video-wrap">
-                    <span class="logo-wordmark">Lala Blue</span>
-                    <video class="logo-spin-video" muted loop playsinline poster="assets/images/logo-poster.png" preload="none">
-                        <source src="assets/videos/logo-spin.webm" type="video/webm">
-                        <source src="assets/videos/logo-spin.mp4" type="video/mp4">
-                    </video>
-                </div>
+            <a href="index.html" aria-label="Lala Blue">
+                <span class="logo-text">Lala Blue</span>
             </a>
         </div>
-                <nav class="nav-right">
+        <nav class="nav-right">
             <ul><li><a href="index.html">← Home</a></li></ul>
         </nav>
-        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
     </div>
 </header>
 <nav class="mobile-nav" id="mobile-nav">
@@ -65,16 +61,13 @@
     <a href="shop.html">Shop</a>
     <a href="contact.html">Contact</a>
 </nav>
-
 <section class="shop-header-section">
     <h1 class="fade-up">The Gammon Bag</h1>
     <p class="fade-up d1">4 colorways · Orders available now</p>
 </section>
-
 <section class="shop-grid-section">
     <div class="shop-inner">
         <div class="colorway-grid">
-
             <a href="gammon-black.html" class="colorway-card fade-up">
                 <div class="colorway-card-img">
                     <img src="assets/images/product-front.jpg" alt="The Gammon Bag in Black">
@@ -82,7 +75,6 @@
                 <p class="colorway-name">Black</p>
                 <p class="colorway-price">$495.00</p>
             </a>
-
             <a href="gammon-orange.html" class="colorway-card fade-up d1">
                 <div class="colorway-card-img">
                     <img src="assets/images/orange/front.jpg" alt="The Gammon Bag in Orange">
@@ -91,7 +83,6 @@
                 <p class="colorway-name">Orange</p>
                 <p class="colorway-price">$545.00</p>
             </a>
-
             <a href="gammon-navy.html" class="colorway-card fade-up d2">
                 <div class="colorway-card-img">
                     <img src="assets/images/navy/front.jpg" alt="The Gammon Bag in Navy">
@@ -100,7 +91,6 @@
                 <p class="colorway-name">Navy</p>
                 <p class="colorway-price">$545.00</p>
             </a>
-
             <a href="gammon-bronze.html" class="colorway-card fade-up d3">
                 <div class="colorway-card-img">
                     <img src="assets/images/bronze/front.jpg" alt="The Gammon Bag in Bronze">
@@ -109,11 +99,9 @@
                 <p class="colorway-name">Bronze</p>
                 <p class="colorway-price">$545.00</p>
             </a>
-
         </div>
     </div>
 </section>
-
 <section class="newsletter">
     <div class="newsletter-inner fade-up">
         <h3>Be first to know.</h3>
@@ -126,7 +114,6 @@
         </form>
     </div>
 </section>
-
 <footer class="site-footer">
     <div class="footer-inner">
         <div class="footer-brand">
@@ -150,7 +137,6 @@
         <hr class="footer-divider">
     </div>
 </footer>
-
 <script src="js/shop.js"></script>
 </body>
 </html>
