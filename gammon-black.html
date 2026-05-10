@@ -21,25 +21,10 @@
         .swatch-navy   { background:#1a2744; }
         .swatch-bronze { background:#6b5a3e; }
         .swatch-black  { background:#1a1a1a; }
-        .logo-video-wrap {
-            position: relative; width: 56px; height: 56px;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .logo-spin-video {
-            position: absolute; inset: 0; width: 100%; height: 100%;
-            object-fit: contain; opacity: 0; transition: opacity 0.4s ease;
-        }
-        .logo-wordmark {
-            font-family: var(--serif); font-size: 22px; font-weight: 300;
-            font-style: italic; letter-spacing: 0.07em; color: var(--text);
-            transition: opacity 0.4s ease; white-space: nowrap; position: absolute;
-        }
-        .logo:hover .logo-spin-video { opacity: 1; }
-        .logo:hover .logo-wordmark   { opacity: 0; }
     </style>
 </head>
 <body>
- 
+
 <header class="site-header" id="site-header">
     <div class="header-inner">
         <nav class="nav-left">
@@ -49,18 +34,7 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
-        <div class="logo">
-            <a href="index.html">
-                <div class="logo-video-wrap">
-                    <span class="logo-wordmark">Lala Blue</span>
-                    <video class="logo-spin-video" muted loop playsinline
-                        poster="assets/images/logo_poster.png" preload="none">
-                        <source src="assets/videos/logo-spin.webm" type="video/webm">
-                        <source src="assets/videos/logo-spin.mp4"  type="video/mp4">
-                    </video>
-                </div>
-            </a>
-        </div>
+        <div class="logo"><a href="index.html"><span class="logo-text">Lala Blue</span></a></div>
         <nav class="nav-right"><ul><li><a href="shop.html">Shop Now</a></li></ul></nav>
         <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
     </div>
@@ -70,10 +44,10 @@
     <a href="shop.html">Shop</a>
     <a href="contact.html">Contact</a>
 </nav>
- 
+
 <section class="product-spotlight" style="margin-top:var(--header-h)">
     <div class="spotlight-inner">
- 
+
         <div class="spotlight-gallery">
             <div class="gallery-main">
                 <img src="assets/images/product-front.jpg" alt="The Gammon Bag in Black — front view" id="main-img">
@@ -91,12 +65,12 @@
                 <img src="assets/images/product-chain.jpg" alt="Side with chain">
             </div>
         </div>
- 
+
         <div class="spotlight-info">
             <p class="product-eyebrow">Lala Blue — The Gammon Bag</p>
             <h2 class="product-title">Black</h2>
             <p class="product-price-display">$495.00 USD</p>
- 
+
             <div class="color-swatches">
                 <span class="swatch-label">Color</span>
                 <a href="gammon-black.html" class="swatch swatch-black active" title="Black"></a>
@@ -104,12 +78,12 @@
                 <a href="gammon-navy.html"   class="swatch swatch-navy"   title="Navy"></a>
                 <a href="gammon-bronze.html" class="swatch swatch-bronze" title="Bronze"></a>
             </div>
- 
+
             <p class="product-desc">
                 Full-grain matte black calfskin shoulder bag with gunmetal grey hardware
                 and the signature Lala Blue logo embossing. Made in USA.
             </p>
- 
+
             <div class="details-section">
                 <div class="detail-row" onclick="toggleDetail(this)">
                     <span class="detail-label">Details</span>
@@ -130,7 +104,7 @@
                         <li>Made in USA</li>
                     </ul>
                 </div>
- 
+
                 <div class="detail-row" onclick="toggleDetail(this)">
                     <span class="detail-label">Product Care</span>
                     <span class="detail-toggle">+</span>
@@ -144,7 +118,7 @@
                         <li>Store in protective dust bag, padded with tissue paper to maintain shape.</li>
                     </ul>
                 </div>
- 
+
                 <div class="detail-row" onclick="toggleDetail(this)">
                     <span class="detail-label">Shipping & Returns</span>
                     <span class="detail-toggle">+</span>
@@ -157,16 +131,16 @@
                     <p>No returns or exchanges at this time. <a href="contact.html" style="text-decoration:underline;text-underline-offset:3px;">Contact us</a> with any questions.</p>
                 </div>
             </div>
- 
+
             <a href="contact.html" class="btn btn-dark" style="display:block; text-align:center; padding:16px;">
                 Inquire to Purchase
             </a>
             <a href="contact.html" class="inquiry-link">Have a question? Contact us.</a>
         </div>
- 
+
     </div>
 </section>
- 
+
 <footer class="site-footer">
     <div class="footer-inner">
         <div class="footer-brand">
@@ -181,14 +155,14 @@
         </nav>
         <div class="footer-right">
             <div class="footer-social">
-                <a href="https://www.instagram.com/lalablueofficial/">Instagram</a>
+                <a href="https://www.instagram.com/lalablueofficial/" target="_blank" rel="noopener">Instagram</a>
             </div>
             <p class="footer-copy">© 2026 Lala Blue. All rights reserved.</p>
         </div>
         <hr class="footer-divider">
     </div>
 </footer>
- 
+
 <script src="js/main.js"></script>
 </body>
 </html>
