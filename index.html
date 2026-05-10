@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lala Blue — The Gammon Bag</title>
+    <meta name="description" content="The Gammon Bag by Lala Blue. Pre-order now. Available in Orange, Navy and Bronze.">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <style>
+        .logo-video-wrap {
+            position: relative; width: 140px; height: 40px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .logo-spin-video {
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            object-fit: contain; opacity: 0; transition: opacity 0.4s ease;
+        }
+        .logo-wordmark {
+            font-family: var(--serif); font-size: 28px; font-weight: 300;
+            font-style: italic; letter-spacing: 0.07em; color: var(--text);
+            transition: opacity 0.4s ease; white-space: nowrap; position: absolute;
+        }
+        .logo:hover .logo-spin-video { opacity: 1; }
+        .logo:hover .logo-wordmark { opacity: 0; }
+        @media (max-width: 900px) {
+            .logo-video-wrap { width: 120px; height: 36px; }
+            .logo-wordmark { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+    <div class="header-inner">
+                <nav class="nav-left">
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="logo">
+            <a href="index.html" aria-label="Lala Blue — Home">
+                <div class="logo-video-wrap">
+                    <span class="logo-wordmark">Lala Blue</span>
+                    <video class="logo-spin-video" muted loop playsinline
+                           poster="assets/images/logo-poster.png" preload="none">
+                        <source src="assets/videos/logo-spin.webm" type="video/webm">
+                        <source src="assets/videos/logo-spin.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </a>
+        </div>
+                <nav class="nav-right">
+            <ul><li><a href="shop.html">Shop Now</a></li></ul>
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav">
+    <a href="about.html">About</a>
+    <a href="shop.html">Shop</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<section class="hero">
+    <div class="hero-image fade-in">
+        <img src="assets/images/black/hero.jpg" alt="The Gammon Bag by Lala Blue">
+    </div>
+    <div class="hero-content">
+        <div class="hero-label fade-up d1">Pre-Order Now</div>
+        <h1 class="fade-up d2">The Gammon<br>Bag</h1>
+        <p class="fade-up d3">Handcrafted leather. Available in<br>Orange, Navy and Bronze.</p>
+        <a href="shop.html" class="btn fade-up d4">Shop Now</a>
+    </div>
+</section>
+
+<section class="newsletter">
+    <div class="newsletter-inner fade-up">
+        <h3>Stay close to the work.</h3>
+        <p>New pieces, stories, and early access delivered quietly to your inbox.</p>
+        <form action="https://formspree.io/f/mreoqvzo" method="POST" target="_blank" style="display:contents">
+            <div class="newsletter-form">
+                <input type="email" name="email" placeholder="Your email address" aria-label="Email address" required>
+                <button type="submit">Subscribe</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <span class="logo-text">Lala Blue</span>
+            <p class="footer-tagline">Handcrafted leather goods.</p>
+        </div>
+        <nav class="footer-nav">
+            <a href="about.html">About</a>
+            <a href="shop.html">Shop</a>
+            <a href="contact.html">Contact</a>
+            <a href="shipping-returns.html">Shipping &amp; Returns</a>
+            <a href="shipping-returns.html#privacy">Privacy Policy</a>
+        </nav>
+        <div class="footer-right">
+            <div class="footer-social">
+                <a href="https://www.instagram.com/lalablueofficial/" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://www.pinterest.com/lalablueofficial/" target="_blank" rel="noopener">Pinterest</a>
+            </div>
+            <p class="footer-copy">© 2026 Lala Blue. All rights reserved.</p>
+        </div>
+        <hr class="footer-divider">
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
