@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/layout.css">
     <style>
         .logo-video-wrap {
-            position: relative; width: 80px; height: 80px;
+            position: relative; width: 140px; height: 40px;
             display: flex; align-items: center; justify-content: center;
         }
         .logo-spin-video {
@@ -22,37 +22,9 @@
             transition: opacity 0.4s ease; white-space: nowrap; position: absolute;
         }
         .logo:hover .logo-spin-video { opacity: 1; }
-        .logo:hover .logo-wordmark   { opacity: 0; }
- 
-        .marquee-strip {
-            overflow: hidden;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            padding: 14px 0; background: var(--bg);
-        }
-        .marquee-track {
-            display: flex; width: max-content;
-            animation: marquee 24s linear infinite;
-        }
-        .marquee-track:hover { animation-play-state: paused; }
-        .marquee-unit {
-            display: flex; align-items: center; gap: 36px;
-            padding: 0 36px; white-space: nowrap;
-            font-family: var(--serif); font-style: italic;
-            font-size: 17px; font-weight: 300;
-            letter-spacing: 0.06em; color: var(--text); opacity: 0.45;
-        }
-        .marquee-dot {
-            width: 3px; height: 3px; border-radius: 50%;
-            background: var(--text); opacity: 0.4; flex-shrink: 0;
-        }
-        @keyframes marquee {
-            from { transform: translateX(0); }
-            to   { transform: translateX(-50%); }
-        }
- 
+        .logo:hover .logo-wordmark { opacity: 0; }
         @media (max-width: 900px) {
-            .logo-video-wrap { width: 56px; height: 56px; }
+            .logo-video-wrap { width: 120px; height: 36px; }
             .logo-wordmark { font-size: 22px; }
         }
     </style>
@@ -61,7 +33,7 @@
 
 <header class="site-header" id="site-header">
     <div class="header-inner">
-        <nav class="nav-left">
+                <nav class="nav-left">
             <ul>
                 <li><a href="about.html">About</a></li>
                 <li><a href="shop.html">Shop</a></li>
@@ -75,12 +47,12 @@
                     <video class="logo-spin-video" muted loop playsinline
                            poster="assets/images/logo-poster.png" preload="none">
                         <source src="assets/videos/logo-spin.webm" type="video/webm">
-                        <source src="assets/videos/logo-spin.mp4"  type="video/mp4">
+                        <source src="assets/videos/logo-spin.mp4" type="video/mp4">
                     </video>
                 </div>
             </a>
         </div>
-        <nav class="nav-right">
+                <nav class="nav-right">
             <ul><li><a href="shop.html">Shop Now</a></li></ul>
         </nav>
         <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -88,15 +60,13 @@
         </button>
     </div>
 </header>
- 
+
 <nav class="mobile-nav" id="mobile-nav">
     <a href="about.html">About</a>
     <a href="shop.html">Shop</a>
     <a href="contact.html">Contact</a>
 </nav>
- 
- 
-<!-- HERO -->
+
 <section class="hero">
     <div class="hero-image fade-in">
         <img src="assets/images/hero.jpg" alt="The Gammon Bag by Lala Blue">
@@ -108,33 +78,7 @@
         <a href="shop.html" class="btn fade-up d4">Shop Now</a>
     </div>
 </section>
- 
-<div class="marquee-strip">
-    <div class="marquee-track">
-        <div class="marquee-unit">Lala Blue <span class="marquee-dot"></span></div>
-        <div class="marquee-unit">The Gammon Bag <span class="marquee-dot"></span></div>
-        <div class="marquee-unit">Handcrafted Leather <span class="marquee-dot"></span></div>
-        <div class="marquee-unit">Pre-Order Available <span class="marquee-dot"></span></div>
-        <div class="marquee-unit">Made in USA <span class="marquee-dot"></span></div>
-        <div class="marquee-unit">Lala Blue <span class="marquee-dot"></span></div>
-        <div class="marquee-unit">The Gammon Bag <span class="marquee-dot"></span></div>
-        <div class="marquee-unit">Handcrafted Leather <span class="marquee-dot"></span></div>
-        <div class="marquee-unit">Pre-Order Available <span class="marquee-dot"></span></div>
-        <div class="marquee-unit">Made in USA <span class="marquee-dot"></span></div>
 
-        <div class="marquee-unit">Lala Blue <span class="marquee-dot"></span></div>
-        <div class="marquee-unit">The Gammon Bag <span class="marquee-dot"></span></div>
-        <div class="marquee-unit">Handcrafted Leather <span class="marquee-dot"></span></div>
-        <div class="marquee-unit">Pre-Order Available <span class="marquee-dot"></span></div>
-        <div class="marquee-unit">Made in USA <span class="marquee-dot"></span></div>
-        <div class="marquee-unit">Lala Blue <span class="marquee-dot"></span></div>
-        <div class="marquee-unit">The Gammon Bag <span class="marquee-dot"></span></div>
-        <div class="marquee-unit">Handcrafted Leather <span class="marquee-dot"></span></div>
-        <div class="marquee-unit">Pre-Order Available <span class="marquee-dot"></span></div>
-        <div class="marquee-unit">Made in USA <span class="marquee-dot"></span></div>
-    </div>
-</div>
- 
 <section class="newsletter">
     <div class="newsletter-inner fade-up">
         <h3>Stay close to the work.</h3>
@@ -147,7 +91,7 @@
         </form>
     </div>
 </section>
- 
+
 <footer class="site-footer">
     <div class="footer-inner">
         <div class="footer-brand">
@@ -163,15 +107,15 @@
         </nav>
         <div class="footer-right">
             <div class="footer-social">
-                <a href="https://www.instagram.com/lalablueofficial/" aria-label="Instagram">Instagram</a>
-                <a href="https://www.pinterest.com/lalablueofficial/" target="_blank" rel="noopener" aria-label="Pinterest">Pinterest</a>
+                <a href="https://www.instagram.com/lalablueofficial/" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://www.pinterest.com/lalablueofficial/" target="_blank" rel="noopener">Pinterest</a>
             </div>
             <p class="footer-copy">© 2026 Lala Blue. All rights reserved.</p>
         </div>
         <hr class="footer-divider">
     </div>
 </footer>
- 
+
 <script src="js/main.js"></script>
 </body>
 </html>

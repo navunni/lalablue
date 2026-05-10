@@ -8,80 +8,35 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <style>
-        .logo-video-wrap { position:relative; width:80px; height:80px; display:flex; align-items:center; justify-content:center; }
-        .logo-spin-video { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; opacity:0; transition:opacity 0.4s ease; }
+        .logo-video-wrap { position:relative; width:140px; height:40px; display:flex; align-items:center; justify-content:center; }
+        .logo-spin-video { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; opacity:0; transition:opacity 0.4s ease; width:40px; height:40px; margin:auto; }
         .logo-wordmark { font-family:var(--serif); font-size:28px; font-weight:300; font-style:italic; letter-spacing:0.07em; color:var(--text); transition:opacity 0.4s ease; white-space:nowrap; position:absolute; }
         .logo:hover .logo-spin-video { opacity:1; }
         .logo:hover .logo-wordmark { opacity:0; }
-        
-        .about-layout {
-            margin-top: var(--header-h);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: calc(100vh - var(--header-h));
-        }
- 
-        .about-image-col {
-            position: sticky;
-            top: var(--header-h);
-            height: calc(100vh - var(--header-h));
-            overflow: hidden;
-            background: var(--bg-alt);
-        }
-        .about-image-col img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
- 
-        .about-text-col {
-            padding: 96px 72px 96px 64px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            overflow-y: auto;
-        }
- 
-        .about-eyebrow {
-            font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
-            color: var(--muted); margin-bottom: 24px;
-        }
-        .about-text-col h1 {
-            font-family: var(--serif);
-            font-size: clamp(32px, 3.5vw, 52px);
-            font-weight: 300; font-style: italic;
-            line-height: 1.12; margin-bottom: 36px;
-        }
-        .about-text-col p {
-            font-size: 15px; color: var(--muted);
-            line-height: 2; margin-bottom: 22px; max-width: 480px;
-        }
-        .about-divider {
-            border: none; border-top: 1px solid var(--border);
-            margin: 48px 0;
-        }
-        .about-text-col h2 {
-            font-family: var(--serif);
-            font-size: clamp(22px, 2.5vw, 36px);
-            font-weight: 300; font-style: italic;
-            line-height: 1.2; margin-bottom: 20px;
-        }
+        @media (max-width:900px) { .logo-video-wrap { width:120px; height:36px; } .logo-wordmark { font-size:22px; } }
+
+        .about-layout { margin-top:var(--header-h); display:grid; grid-template-columns:1fr 1fr; min-height:calc(100vh - var(--header-h)); }
+        .about-image-col { position:sticky; top:var(--header-h); height:calc(100vh - var(--header-h)); overflow:hidden; background:var(--bg-alt); }
+        .about-image-col img { width:100%; height:100%; object-fit:cover; object-position:center; }
+        .about-text-col { padding:96px 72px 96px 64px; display:flex; flex-direction:column; justify-content:center; overflow-y:auto; }
+        .about-eyebrow { font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--muted); margin-bottom:24px; }
+        .about-text-col h1 { font-family:var(--serif); font-size:clamp(32px,3.5vw,52px); font-weight:300; font-style:italic; line-height:1.12; margin-bottom:36px; }
+        .about-text-col p { font-size:15px; color:var(--muted); line-height:2; margin-bottom:22px; max-width:480px; }
+        .about-divider { border:none; border-top:1px solid var(--border); margin:48px 0; }
+        .about-text-col h2 { font-family:var(--serif); font-size:clamp(22px,2.5vw,36px); font-weight:300; font-style:italic; line-height:1.2; margin-bottom:20px; }
         .about-cta { display:flex; gap:16px; margin-top:40px; flex-wrap:wrap; }
- 
-        @media (max-width: 900px) {
-            .about-layout { grid-template-columns: 1fr; }
+        @media (max-width:900px) {
+            .about-layout { grid-template-columns:1fr; }
             .about-image-col { position:static; height:60vw; min-height:300px; }
-            .about-text-col { padding: 56px 24px; }
-            .logo-video-wrap { width:56px; height:56px; }
-            .logo-wordmark { font-size:22px; }
+            .about-text-col { padding:56px 24px; }
         }
     </style>
 </head>
 <body>
- 
+
 <header class="site-header" id="site-header">
     <div class="header-inner">
-        <nav class="nav-left">
+                <nav class="nav-left">
             <ul>
                 <li><a href="about.html">About</a></li>
                 <li><a href="shop.html">Shop</a></li>
@@ -99,7 +54,9 @@
                 </div>
             </a>
         </div>
-        <nav class="nav-right"><ul><li><a href="shop.html">Shop Now</a></li></ul></nav>
+                <nav class="nav-right">
+            <ul><li><a href="index.html">← Home</a></li></ul>
+        </nav>
         <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
     </div>
 </header>
@@ -108,32 +65,26 @@
     <a href="shop.html">Shop</a>
     <a href="contact.html">Contact</a>
 </nav>
- 
+
 <div class="about-layout">
     <div class="about-image-col fade-in">
         <img src="assets/images/orange/interior-open.jpg" alt="The Gammon Bag — interior">
     </div>
- 
     <div class="about-text-col">
         <p class="about-eyebrow fade-up">Lala Blue</p>
         <h1 class="fade-up d1">Designed from<br>the heart.</h1>
- 
-        <p class="fade-up d2">Lala Blue was founded by Elika Broumand, an NYU Gallatin student. </p>
+        <p class="fade-up d2">Lala Blue was founded by Elika Broumand — NYU Gallatin student and designer — with a single belief: that an object made with genuine care will outlast every trend.</p>
         <p class="fade-up d2">Each bag begins as a sketch and ends as something you reach for every day. Not because it announces itself, but because it simply works.</p>
- 
         <hr class="about-divider fade-up d3">
- 
         <h2 class="fade-up d3">The Gammon Bag.</h2>
         <p class="fade-up d3">Handcrafted leather in Orange, Navy, and Bronze. Gold brass hardware. Each colorway with its own distinctive lining. Made in USA. Available for pre-order now at $545.</p>
- 
         <div class="about-cta fade-up d4">
             <a href="shop.html" class="btn btn-dark">Shop Now</a>
             <a href="contact.html" class="btn btn-dark">Get in Touch</a>
         </div>
     </div>
- 
 </div>
- 
+
 <section class="newsletter">
     <div class="newsletter-inner fade-up">
         <h3>Stay close to the work.</h3>
@@ -146,7 +97,7 @@
         </form>
     </div>
 </section>
- 
+
 <footer class="site-footer">
     <div class="footer-inner">
         <div class="footer-brand">
@@ -170,7 +121,7 @@
         <hr class="footer-divider">
     </div>
 </footer>
- 
+
 <script src="js/main.js"></script>
 </body>
 </html>
