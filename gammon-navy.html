@@ -33,7 +33,6 @@
         .swatch-orange { background:#d4502a; }
         .swatch-navy   { background:#1a2744; }
         .swatch-bronze { background:#6b5a3e; }
-
         .product-desc { font-size:14px; color:var(--muted); line-height:1.85; margin-bottom:32px; max-width:380px; }
         .details-section { margin-bottom:32px; }
         .detail-row { display:flex; justify-content:space-between; align-items:center; padding:13px 0; border-top:1px solid var(--border); cursor:pointer; }
@@ -45,15 +44,12 @@
         .detail-body p, .detail-body li { font-size:13px; color:var(--muted); line-height:1.9; }
         .detail-body ul { padding-left:16px; list-style:disc; }
         .detail-body a { color:var(--muted); text-decoration:underline; text-underline-offset:3px; }
-
         .shopify-buy-frame--product iframe { width:100% !important; }
         .inquiry-link {
             display: block;
             text-align: center;
             width: 100%;
-            margin-top: 24px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-top: 16px;
         }
         .inquiry-link:hover { color:var(--text); }
 
@@ -69,6 +65,10 @@
             .photo-scroll { height:auto; position:static; }
             .photo-item { aspect-ratio:1/1; }
             .product-info-panel { position:static; height:auto; padding:48px 24px; }
+        }
+
+        #privacy {
+            scroll-margin-top: calc(var(--header-h) + 24px);
         }
     </style>
 </head>
@@ -174,6 +174,7 @@
             ShopifyBuy.UI.onReady(client).then(function (ui) {
               ui.createComponent('product', {
                 id: '9404479570160',
+                variantId: '49642735599856',
                 node: document.getElementById('product-component-1778460481238'),
                 moneyFormat: '%24%7B%7Bamount%7D%7D',
                 options: {

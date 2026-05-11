@@ -8,46 +8,53 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <style>
-                .logo-wrap {
-            display: flex; align-items: center; justify-content: center;
-        }
-        .logo-img {
-            height: 64px; width: auto; display: block;
-        }
-        @media (max-width: 900px) {
-            .logo-img { height: 48px; }
-        }
-        @media (max-width:900px) { .logo-video-wrap { width:120px; height:36px; } .logo-wordmark { font-size:22px; } }
-
+        html, body { overscroll-behavior: none; }
+        .logo a { position:relative; display:inline-flex; align-items:center; justify-content:center; height:44px; }
+        .logo-wordmark { font-family:var(--serif); font-size:26px; font-weight:300; font-style:italic; letter-spacing:0.07em; color:var(--text); transition:opacity 0.35s ease; white-space:nowrap; }
+        .logo-hover-img { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); height:72px; width:auto; object-fit:contain; opacity:0; transition:opacity 0.35s ease; pointer-events:none; }
+        .logo a:hover .logo-wordmark  { opacity:0; }
+        .logo a:hover .logo-hover-img { opacity:1; }
         .contact-page { margin-top:var(--header-h); min-height:80vh; display:grid; grid-template-columns:1fr 1fr; align-items:stretch; }
-        .contact-left { background:var(--bg-alt); padding:96px 64px; display:flex; flex-direction:column; justify-content:center; }
-        .contact-left .contact-eyebrow { font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--muted); margin-bottom:24px; }
+        .contact-left { background: var(--bg); padding: 96px 64px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--border);}
+        .contact-eyebrow { font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--muted); margin-bottom:24px; }
         .contact-left h1 { font-family:var(--serif); font-size:clamp(32px,3.5vw,52px); font-weight:300; font-style:italic; color:var(--text); line-height:1.15; margin-bottom:24px; }
         .contact-left p { font-size:14px; color:var(--muted); line-height:1.9; max-width:360px; }
         .contact-info { margin-top:48px; display:flex; flex-direction:column; gap:14px; }
-        .contact-info a { font-size:12px; letter-spacing:0.1em; color:var(--text); transition:color 0.2s; }
+        .contact-info a { font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text); transition:color 0.2s; }
         .contact-info a:hover { color:var(--muted); }
         .contact-right { padding:96px 64px; background:var(--bg); }
         .contact-right h2 { font-family:var(--serif); font-size:28px; font-weight:300; font-style:italic; margin-bottom:40px; }
         .form-group { margin-bottom:28px; }
         .form-group label { display:block; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
-        .form-group input, .form-group textarea, .form-group select { width:100%; border:none; border-bottom:1px solid var(--border); background:transparent; padding:10px 0; font-size:14px; font-weight:300; color:var(--text); outline:none; transition:border-color 0.25s; appearance:none; -webkit-appearance:none; border-radius:0; }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color:var(--text); }
-        .form-group input::placeholder, .form-group textarea::placeholder { color:var(--muted); opacity:0.6; }
+        .form-group input,
+        .form-group textarea,
+        .form-group select { width:100%; border:none; border-bottom:1px solid var(--border); background:transparent; padding:10px 0; font-size:14px; font-weight:300; color:var(--text); outline:none; transition:border-color 0.25s; appearance:none; -webkit-appearance:none; border-radius:0; }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus { border-color:var(--text); }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder { color:var(--muted); opacity:0.6; }
         .form-group textarea { resize:none; min-height:120px; }
         .form-row { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
-        .form-submit { width:100%; padding:16px; background:var(--text); color:var(--text-inv); border:none; font-size:11px; font-weight:400; letter-spacing:0.2em; text-transform:uppercase; cursor:pointer; margin-top:8px; transition:background 0.28s var(--ease); }
+        .form-submit { width:100%; padding:16px; background:var(--text); color:var(--text-inv); border:none; font-family:var(--sans); font-size:11px; font-weight:400; letter-spacing:0.2em; text-transform:uppercase; cursor:pointer; margin-top:8px; transition:background 0.28s var(--ease); }
         .form-submit:hover { background:#555; }
         .form-success { display:none; text-align:center; padding:60px 0; font-family:var(--serif); font-size:26px; font-style:italic; line-height:1.4; color:var(--text); }
-        @media (max-width:900px) { .contact-page { grid-template-columns:1fr; } .contact-left, .contact-right { padding:64px 32px; } .form-row { grid-template-columns:1fr; gap:0; } }
-        @media (max-width:560px) { .contact-left, .contact-right { padding:48px 24px; } }
+
+        @media (max-width:900px) {
+            .contact-page { grid-template-columns:1fr; }
+            .contact-left, .contact-right { padding:64px 32px; }
+            .form-row { grid-template-columns:1fr; gap:0; }
+        }
+        @media (max-width:560px) {
+            .contact-left, .contact-right { padding:48px 24px; }
+        }
     </style>
 </head>
 <body>
 
 <header class="site-header" id="site-header">
     <div class="header-inner">
-                <nav class="nav-left">
+        <nav class="nav-left">
             <ul>
                 <li><a href="about.html">About</a></li>
                 <li><a href="shop.html">Shop</a></li>
@@ -55,22 +62,18 @@
             </ul>
         </nav>
         <div class="logo">
-            <a href="index.html">
-                <div class="logo-video-wrap">
-                    <span class="logo-wordmark">Lala Blue</span>
-                    <video class="logo-spin-video" muted loop playsinline poster="assets/images/logo-poster.png" preload="none">
-                        <source src="assets/videos/logo-spin.webm" type="video/webm">
-                        <source src="assets/videos/logo-spin.mp4" type="video/mp4">
-                    </video>
-                </div>
+            <a href="index.html" aria-label="Lala Blue">
+                <span class="logo-wordmark">Lala Blue</span>
+                <img src="assets/images/logo-poster.png" alt="Lala Blue" class="logo-hover-img">
             </a>
         </div>
-                <nav class="nav-right">
+        <nav class="nav-right">
             <ul><li><a href="index.html">← Home</a></li></ul>
         </nav>
         <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
     </div>
 </header>
+
 <nav class="mobile-nav" id="mobile-nav">
     <a href="about.html">About</a>
     <a href="shop.html">Shop</a>
@@ -81,7 +84,7 @@
     <div class="contact-left fade-in">
         <p class="contact-eyebrow">Get in Touch</p>
         <h1>We'd love<br>to hear from you.</h1>
-        <p>Whether you have a question about the bag, want to inquire about a custom order, or simply want to say hello — reach out and we'll get back to you promptly.</p>
+        <p>Whether you have a question about our brand, want to inquire about a custom order, or simply want to say hello — please do reach out and we'll get back to you promptly.</p>
         <div class="contact-info">
             <a href="mailto:elikavbb@icloud.com">Email</a>
             <a href="https://www.instagram.com/lalablueofficial/" target="_blank" rel="noopener">Instagram</a>
@@ -107,7 +110,7 @@
             <div class="form-group">
                 <label for="subject">Subject</label>
                 <select id="subject">
-                    <option value="">Select a topic…</option>
+                    <option value="">Select A Topic:</option>
                     <option value="product">Product Question</option>
                     <option value="order">Order Inquiry</option>
                     <option value="preorder">Pre-Order</option>
@@ -132,7 +135,7 @@
 <footer class="site-footer">
     <div class="footer-inner">
         <div class="footer-brand">
-            <span class="logo-text">Lala Blue</span>
+            <span class="logo-wordmark">Lala Blue</span>
             <p class="footer-tagline">Handcrafted leather goods.</p>
         </div>
         <nav class="footer-nav">
@@ -152,28 +155,27 @@
     </div>
 </footer>
 
+<script src="js/main.js"></script>
 <script>
-const header = document.getElementById('site-header');
-window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
-const hamburger = document.getElementById('hamburger');
-const mobileNav = document.getElementById('mobile-nav');
-hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileNav.classList.toggle('open'); });
 function submitForm() {
-    const fname = document.getElementById('fname').value.trim();
-    const email = document.getElementById('email').value.trim();
+    const fname   = document.getElementById('fname').value.trim();
+    const email   = document.getElementById('email').value.trim();
     const message = document.getElementById('message').value.trim();
-    if (!email) { alert('Please enter your email address.'); return; }
+    if (!email)   { alert('Please enter your email address.'); return; }
     if (!message) { alert('Please enter a message.'); return; }
     document.getElementById('contact-form').style.display = 'none';
     document.getElementById('form-success').style.display = 'block';
     fetch('https://formspree.io/f/mreoqvzo', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: fname + ' ' + document.getElementById('lname').value, email: email, subject: document.getElementById('subject').value, message: message })
+        body: JSON.stringify({
+            name: fname + ' ' + document.getElementById('lname').value,
+            email: email,
+            subject: document.getElementById('subject').value,
+            message: message
+        })
     });
 }
-const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.style.animationPlayState = 'running'; observer.unobserve(e.target); } }); }, { threshold: 0.1 });
-document.querySelectorAll('.fade-up, .fade-in').forEach(el => { el.style.animationPlayState = 'paused'; observer.observe(el); });
 </script>
 </body>
 </html>

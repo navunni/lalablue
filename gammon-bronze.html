@@ -49,9 +49,7 @@
             display: block;
             text-align: center;
             width: 100%;
-            margin-top: 24px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-top: 16px;
         }
         .inquiry-link:hover { color:var(--text); }
 
@@ -67,6 +65,10 @@
             .photo-scroll { height:auto; position:static; }
             .photo-item { aspect-ratio:1/1; }
             .product-info-panel { position:static; height:auto; padding:48px 24px; }
+        }
+
+        #privacy {
+            scroll-margin-top: calc(var(--header-h) + 24px);
         }
     </style>
 </head>
@@ -172,6 +174,7 @@
             ShopifyBuy.UI.onReady(client).then(function (ui) {
               ui.createComponent('product', {
                 id: '9404479570160',
+                variantId: '49642735632624',
                 node: document.getElementById('product-component-1778460481238'),
                 moneyFormat: '%24%7B%7Bamount%7D%7D',
                 options: {
