@@ -80,9 +80,25 @@
         .newsletter-form { border-bottom-color: var(--border) !important; }
 
         @media (max-width: 768px) {
-            .hero { height: 100svh; }
-            .hero-content { bottom: 40px; left: 24px; right: 24px; }
-            .hero-content h1 { font-size: 36px; }
+                    .hero {
+                height: 100svh;
+            }
+            .hero-content {
+                bottom: 30px;
+                left: 20px;
+                right: 20px;
+                background: rgba(255,255,255,0.85);
+                padding: 16px 20px;
+                backdrop-filter: blur(4px);
+            }
+            .hero-content h1 {
+                font-size: 32px;
+                margin-bottom: 10px;
+            }
+            .hero-content p {
+                font-size: 13px;
+                margin-bottom: 20px;
+            }
         }
     </style>
 </head>
