@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lala Blue</title>
-    <meta name="description" content="The Gammon Bag by Lala Blue. Pre-order now. Available in Orange, Navy and Bronze.">
+    <meta name="description" content="The Gammon Bag by Lala Blue. Order now. Available in Orange, Navy and Bronze.">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <style>
@@ -53,15 +53,13 @@
         .hero-image {
             position: absolute;
             inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
-        .hero-image video {
+        .hero-image img {
+            width: 100%;
             height: 100%;
-            width: auto;
+            object-fit: cover;
+            object-position: center;
             display: block;
-
         }
         .hero-content {
             position: absolute;
@@ -135,20 +133,9 @@
     <a href="contact.html">Contact</a>
 </nav>
 
-<section class="hero">
-    <div class="hero-image fade-in">
-        <video autoplay muted loop playsinline poster="assets/images/logo-poster.png">
-            <source src="assets/videos/logo-spin.webm" type="video/webm">
-            <source src="assets/videos/logo-spin.mp4" type="video/mp4">
-        </video>
-    </div>
-    <div class="hero-content">
-        <div class="hero-label fade-up d1">Pre-Order Now</div>
-        <h1 class="fade-up d2">The Gammon<br>Bag</h1>
-        <p class="fade-up d3">Handcrafted leather. Available in<br>Orange, Navy and Bronze.</p>
-        <a href="shop.html" class="btn fade-up d4">Shop Now</a>
-    </div>
-</section>
+<div class="hero-image fade-in">
+    <img src="assets/images/bronze/front.jpg" alt="The Gammon Bag in Bronze">
+</div>
 
 <footer class="site-footer">
     <div class="footer-inner">
