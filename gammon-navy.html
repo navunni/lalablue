@@ -8,56 +8,75 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <style>
-        .logo-video-wrap { position:relative; width:140px; height:40px; display:flex; align-items:center; justify-content:center; }
-        .logo-spin-video { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; opacity:0; transition:opacity 0.4s ease; width:40px; height:40px; margin:auto; }
-        .logo-wordmark { font-family:var(--serif); font-size:28px; font-weight:300; font-style:italic; letter-spacing:0.07em; color:var(--text); transition:opacity 0.4s ease; white-space:nowrap; position:absolute; }
-        .logo:hover .logo-spin-video { opacity:1; }
-        .logo:hover .logo-wordmark { opacity:0; }
-        @media (max-width:900px) { .logo-video-wrap { width:120px; height:36px; } .logo-wordmark { font-size:22px; } }
-
+        html, body { overscroll-behavior: none; }
+        .logo a { position:relative; display:inline-flex; align-items:center; justify-content:center; height:44px; }
+        .logo-wordmark { font-family:var(--serif); font-size:26px; font-weight:300; font-style:italic; letter-spacing:0.07em; color:var(--text); transition:opacity 0.35s ease; white-space:nowrap; }
+        .logo-hover-img { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); height:72px; width:auto; object-fit:contain; opacity:0; transition:opacity 0.35s ease; pointer-events:none; }
+        .logo a:hover .logo-wordmark  { opacity:0; }
+        .logo a:hover .logo-hover-img { opacity:1; }
         .product-page { margin-top:var(--header-h); display:grid; grid-template-columns:1fr 1fr; min-height:calc(100vh - var(--header-h)); }
         .photo-scroll { overflow-y:auto; height:calc(100vh - var(--header-h)); position:sticky; top:var(--header-h); }
         .photo-scroll::-webkit-scrollbar { display:none; }
         .photo-item { width:100%; aspect-ratio:4/5; overflow:hidden; background:#ffffff; display:flex; align-items:center; justify-content:center; }
         .photo-item img { width:100%; height:100%; object-fit:contain; display:block; }
-        .product-info-panel { position:sticky; top:var(--header-h); height:calc(100vh - var(--header-h)); overflow-y:auto; padding:80px 52px 52px 64px; display:flex; flex-direction:column; justify-content:flex-start; overflow-y:auto; background:var(--bg-dark); color:var(--text-inv); }
+        .product-info-panel { position:sticky; top:var(--header-h); height:calc(100vh - var(--header-h)); overflow-y:auto; padding:80px 52px 52px 64px; display:flex; flex-direction:column; justify-content:flex-start; background:var(--bg); color:var(--text); }
         .product-info-panel::-webkit-scrollbar { display:none; }
-        .product-eyebrow { font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:16px; }
-        .product-title { font-family:var(--serif); font-size:clamp(36px,4vw,58px); font-weight:300; font-style:italic; line-height:1.05; margin-bottom:6px; color:var(--text-inv); }
-        .product-colorname { font-family:var(--serif); font-size:clamp(20px,2vw,28px); font-weight:300; font-style:italic; color:rgba(255,255,255,0.55); margin-bottom:24px; }
-        .product-price-display { font-size:20px; font-weight:300; letter-spacing:0.04em; color:var(--text-inv); margin-bottom:12px; }
-        .preorder-badge { display:inline-block; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; background:rgba(255,255,255,0.1); color:rgba(255,255,255,0.75); padding:5px 14px; margin-bottom:32px; border:1px solid rgba(255,255,255,0.18); }
-        .product-desc { font-size:14px; color:rgba(255,255,255,0.55); line-height:1.85; margin-bottom:32px; max-width:380px; }
+        .product-eyebrow { font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--muted); margin-bottom:16px; }
+        .product-title { font-family:var(--serif); font-size:clamp(36px,4vw,58px); font-weight:300; font-style:italic; line-height:1.05; margin-bottom:6px; color:var(--text); }
+        .product-colorname { font-family:var(--serif); font-size:clamp(20px,2vw,28px); font-weight:300; font-style:italic; color:var(--muted); margin-bottom:24px; }
+        .product-price-display { font-size:20px; font-weight:300; letter-spacing:0.04em; color:var(--text); margin-bottom:12px; }
+        .preorder-badge { display:inline-block; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; background:transparent; color:var(--text); padding:5px 14px; margin-bottom:32px; border:1px solid var(--border); }
         .color-swatches { display:flex; gap:12px; margin-bottom:32px; align-items:center; }
-        .swatch-label { font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-right:4px; }
+        .swatch-label { font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); margin-right:4px; }
         .swatch { width:22px; height:22px; border-radius:50%; border:2px solid transparent; cursor:pointer; transition:border-color 0.2s; text-decoration:none; display:block; }
-        .swatch:hover, .swatch.active { border-color:rgba(255,255,255,0.8); }
+        .swatch:hover, .swatch.active { border-color:var(--text); }
         .swatch-orange { background:#d4502a; }
-        .swatch-navy { background:#1a2744; }
+        .swatch-navy   { background:#1a2744; }
         .swatch-bronze { background:#6b5a3e; }
-        .swatch-black  { background:#1a1a1a; }
+
+        .product-desc { font-size:14px; color:var(--muted); line-height:1.85; margin-bottom:32px; max-width:380px; }
         .details-section { margin-bottom:32px; }
-        .detail-row { display:flex; justify-content:space-between; align-items:center; padding:13px 0; border-top:1px solid rgba(255,255,255,0.1); cursor:pointer; }
-        .detail-row:last-child { border-bottom:1px solid rgba(255,255,255,0.1); }
-        .detail-label { font-size:11px; letter-spacing:0.12em; text-transform:uppercase; font-weight:400; color:rgba(255,255,255,0.75); }
-        .detail-toggle { font-size:18px; color:rgba(255,255,255,0.35); user-select:none; }
+        .detail-row { display:flex; justify-content:space-between; align-items:center; padding:13px 0; border-top:1px solid var(--border); cursor:pointer; }
+        .detail-row:last-child { border-bottom:1px solid var(--border); }
+        .detail-label { font-size:11px; letter-spacing:0.12em; text-transform:uppercase; font-weight:400; color:var(--text); }
+        .detail-toggle { font-size:18px; color:var(--muted); user-select:none; }
         .detail-body { max-height:0; overflow:hidden; transition:max-height 0.4s var(--ease), padding 0.3s; }
         .detail-body.open { max-height:600px; padding-bottom:14px; }
-        .detail-body p, .detail-body li { font-size:13px; color:rgba(255,255,255,0.5); line-height:1.9; }
+        .detail-body p, .detail-body li { font-size:13px; color:var(--muted); line-height:1.9; }
         .detail-body ul { padding-left:16px; list-style:disc; }
-        .detail-body a { color:rgba(255,255,255,0.65); text-decoration:underline; text-underline-offset:3px; }
-        .preorder-btn { display:block; width:100%; padding:16px; text-align:center; background:var(--text-inv); color:var(--bg-dark); border:none; font-family:var(--sans); font-size:11px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; cursor:pointer; text-decoration:none; transition:background 0.28s; margin-bottom:14px; }
-        .preorder-btn:hover { background:rgba(255,255,255,0.85); }
-        .inquiry-link { display:block; text-align:center; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.35); text-decoration:underline; text-underline-offset:3px; transition:color 0.2s; }
-        .inquiry-link:hover { color:rgba(255,255,255,0.75); }
-        @media (max-width:900px) { .product-page { grid-template-columns:1fr; } .photo-scroll { height:auto; position:static; } .photo-item { aspect-ratio:1/1; } .product-info-panel { position:static; height:auto; padding:48px 24px; } }
+        .detail-body a { color:var(--muted); text-decoration:underline; text-underline-offset:3px; }
+
+        .shopify-buy-frame--product iframe { width:100% !important; }
+        .inquiry-link {
+            display: block;
+            text-align: center;
+            width: 100%;
+            margin-top: 24px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .inquiry-link:hover { color:var(--text); }
+
+        #product-component-1778460481238 {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @media (max-width:900px) {
+            .product-page { grid-template-columns:1fr; }
+            .photo-scroll { height:auto; position:static; }
+            .photo-item { aspect-ratio:1/1; }
+            .product-info-panel { position:static; height:auto; padding:48px 24px; }
+        }
     </style>
 </head>
 <body>
 
 <header class="site-header" id="site-header">
     <div class="header-inner">
-                <nav class="nav-left">
+        <nav class="nav-left">
             <ul>
                 <li><a href="about.html">About</a></li>
                 <li><a href="shop.html">Shop</a></li>
@@ -65,17 +84,12 @@
             </ul>
         </nav>
         <div class="logo">
-            <a href="index.html">
-                <div class="logo-video-wrap">
-                    <span class="logo-wordmark">Lala Blue</span>
-                    <video class="logo-spin-video" muted loop playsinline poster="assets/images/logo-poster.png" preload="none">
-                        <source src="assets/videos/logo-spin.webm" type="video/webm">
-                        <source src="assets/videos/logo-spin.mp4" type="video/mp4">
-                    </video>
-                </div>
+            <a href="index.html" aria-label="Lala Blue">
+                <span class="logo-wordmark">Lala Blue</span>
+                <img src="assets/images/logo-poster.png" alt="Lala Blue" class="logo-hover-img">
             </a>
         </div>
-                <nav class="nav-right">
+        <nav class="nav-right">
             <ul><li><a href="index.html">← Home</a></li></ul>
         </nav>
         <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
@@ -103,17 +117,13 @@
         <span class="preorder-badge">Pre-Order Now</span>
         <div class="color-swatches">
             <span class="swatch-label">Color</span>
-            <a href="gammon-orange.html" class="swatch swatch-orange" title="Orange"></a>
-            <a href="gammon-navy.html" class="swatch swatch-navy active" title="Navy"></a>
-            <a href="gammon-bronze.html" class="swatch swatch-bronze" title="Bronze"></a>
-            <a href="gammon-black.html" class="swatch swatch-black" title="Black"></a>
+            <a href="gammon-orange.html" class="swatch swatch-orange"      title="Orange"></a>
+            <a href="gammon-navy.html"   class="swatch swatch-navy active" title="Navy"></a>
+            <a href="gammon-bronze.html" class="swatch swatch-bronze"      title="Bronze"></a>
         </div>
         <p class="product-desc">Soft grained leather with a light shine, adorned with gold brass buckles, two way zipper, and tubular handles, with signature Lala Blue embossing. Made in USA.</p>
         <div class="details-section">
-            <div class="detail-row" onclick="toggleDetail(this)">
-                <span class="detail-label">Details</span>
-                <span class="detail-toggle">+</span>
-            </div>
+            <div class="detail-row" onclick="toggleDetail(this)"><span class="detail-label">Details</span><span class="detail-toggle">+</span></div>
             <div class="detail-body">
                 <ul>
                     <li>Width: 34 cm | 13.38 in</li>
@@ -129,10 +139,7 @@
                     <li>Made in USA</li>
                 </ul>
             </div>
-            <div class="detail-row" onclick="toggleDetail(this)">
-                <span class="detail-label">Product Care</span>
-                <span class="detail-toggle">+</span>
-            </div>
+            <div class="detail-row" onclick="toggleDetail(this)"><span class="detail-label">Product Care</span><span class="detail-toggle">+</span></div>
             <div class="detail-body">
                 <ul>
                     <li>Avoid contact with water, perfumes, oils, and chemical substances.</li>
@@ -142,27 +149,65 @@
                     <li>Store in protective dust bag, padded with tissue paper.</li>
                 </ul>
             </div>
-            <div class="detail-row" onclick="toggleDetail(this)">
-                <span class="detail-label">Shipping &amp; Returns</span>
-                <span class="detail-toggle">+</span>
-            </div>
+            <div class="detail-row" onclick="toggleDetail(this)"><span class="detail-label">Shipping &amp; Returns</span><span class="detail-toggle">+</span></div>
             <div class="detail-body">
-                <p style="margin-bottom:10px"><strong style="color:rgba(255,255,255,0.8)">Shipping</strong></p>
+                <p style="margin-bottom:10px"><strong>Shipping</strong></p>
                 <p style="margin-bottom:12px">Pre-orders accepted. Email notification when shipped.</p>
                 <p style="margin-bottom:16px"><a href="shipping-returns.html">View full policy →</a></p>
-                <p style="margin-bottom:10px"><strong style="color:rgba(255,255,255,0.8)">Returns</strong></p>
+                <p style="margin-bottom:10px"><strong>Returns</strong></p>
                 <p>No returns or exchanges. <a href="contact.html">Contact us</a> with any questions.</p>
             </div>
         </div>
-        <a href="contact.html" class="preorder-btn">Pre-Order — $545.00</a>
-        <a href="contact.html" class="inquiry-link">Have a question? Contact us.</a>
+
+        <div id="product-component-1778460481238"></div>
+        <script type="text/javascript">
+        (function () {
+          var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+          if (window.ShopifyBuy) { if (window.ShopifyBuy.UI) { ShopifyBuyInit(); } else { loadScript(); } } else { loadScript(); }
+          function loadScript() {
+            var script = document.createElement('script'); script.async = true; script.src = scriptURL;
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+            script.onload = ShopifyBuyInit;
+          }
+          function ShopifyBuyInit() {
+            var client = ShopifyBuy.buildClient({ domain: '08c65d-2.myshopify.com', storefrontAccessToken: '52bd6097fb0747ad170d5bdeb66c81d1' });
+            ShopifyBuy.UI.onReady(client).then(function (ui) {
+              ui.createComponent('product', {
+                id: '9404479570160',
+                node: document.getElementById('product-component-1778460481238'),
+                moneyFormat: '%24%7B%7Bamount%7D%7D',
+                options: {
+                  "product": {
+                    "styles": {
+                      "product": { "@media (min-width: 601px)": { "max-width": "100%", "margin-left": "0px", "margin-bottom": "0px" } },
+                      "button": { "font-family": "Karla, sans-serif", "font-size": "13px", "padding-top": "14.5px", "padding-bottom": "14.5px", ":hover": { "background-color": "#111111" }, "background-color": "#0a0a0a", ":focus": { "background-color": "#111111" }, "border-radius": "0px", "width": "100%", "letter-spacing": "0.1em", "text-transform": "uppercase" }
+                    },
+                    "contents": { "img": false, "title": false, "price": false },
+                    "buttonDestination": "checkout",
+                    "text": { "button": "Pre-Order Now" },
+                    "googleFonts": ["Karla"]
+                  },
+                  "option": { "contents": { "option": false } },
+                  "cart": {
+                    "styles": { "button": { "font-family": "Karla, sans-serif", "font-size": "13px", "padding-top": "14.5px", "padding-bottom": "14.5px", ":hover": { "background-color": "#111111" }, "background-color": "#0a0a0a", ":focus": { "background-color": "#111111" }, "border-radius": "0px" } },
+                    "text": { "total": "Subtotal", "button": "Checkout" },
+                    "googleFonts": ["Karla"]
+                  },
+                  "toggle": { "styles": { "toggle": { "font-family": "Karla, sans-serif", "background-color": "#0a0a0a", ":hover": { "background-color": "#111111" }, ":focus": { "background-color": "#111111" } }, "count": { "font-size": "13px" } }, "googleFonts": ["Karla"] }
+                }
+              });
+            });
+          }
+        })();
+        </script>
+        <a href="contact.html" class="inquiry-link" style="display:block; text-align:center; margin-top:20px; width:100%;">Have a question? Contact us.</a>
     </div>
 </div>
 
 <footer class="site-footer">
     <div class="footer-inner">
         <div class="footer-brand">
-            <span class="logo-text">Lala Blue</span>
+            <span class="logo-wordmark">Lala Blue</span>
             <p class="footer-tagline">Handcrafted leather goods.</p>
         </div>
         <nav class="footer-nav">
@@ -179,7 +224,6 @@
             </div>
             <p class="footer-copy">© 2026 Lala Blue. All rights reserved.</p>
         </div>
-        <hr class="footer-divider">
     </div>
 </footer>
 

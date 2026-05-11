@@ -4,64 +4,147 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About — Lala Blue</title>
-    <meta name="description" content="About Lala Blue — handcrafted leather goods founded by Elika Broumand.">
+    <meta name="description" content="About Lala Blue — handcrafted leather goods brand founded by Elika Broumand.">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <style>
+        .logo a {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 44px;
+        }
         .logo-text {
-            font-family: var(--serif); font-size: 26px; font-weight: 300;
-            font-style: italic; letter-spacing: 0.07em; color: var(--text);
+            font-family: var(--serif);
+            font-size: 26px;
+            font-weight: 300;
+            font-style: italic;
+            letter-spacing: 0.07em;
+            color: var(--text);
+            transition: opacity 0.35s ease;
+            white-space: nowrap;
         }
-        @media (max-width:900px) { .logo-video-wrap { width:120px; height:36px; } .logo-wordmark { font-size:22px; } }
+        .logo-hover-img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 72px;
+            width: auto;
+            object-fit: contain;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            pointer-events: none;
+        }
+        .logo a:hover .logo-text      { opacity: 0; }
+        .logo a:hover .logo-hover-img { opacity: 1; }
 
-        .about-layout { margin-top:var(--header-h); display:grid; grid-template-columns:1fr 1fr; min-height:calc(100vh - var(--header-h)); }
-        .about-image-col { position:sticky; top:var(--header-h); height:calc(100vh - var(--header-h)); overflow:hidden; background:var(--bg-alt); }
-        .about-image-col img { width:100%; height:100%; object-fit:cover; object-position:center; }
-        .about-text-col { padding:96px 72px 96px 64px; display:flex; flex-direction:column; justify-content:center; overflow-y:auto; }
-        .about-eyebrow { font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--muted); margin-bottom:24px; }
-        .about-text-col h1 { font-family:var(--serif); font-size:clamp(32px,3.5vw,52px); font-weight:300; font-style:italic; line-height:1.12; margin-bottom:36px; }
-        .about-text-col p { font-size:15px; color:var(--muted); line-height:2; margin-bottom:22px; max-width:480px; }
-        .about-divider { border:none; border-top:1px solid var(--border); margin:48px 0; }
-        .about-text-col h2 { font-family:var(--serif); font-size:clamp(22px,2.5vw,36px); font-weight:300; font-style:italic; line-height:1.2; margin-bottom:20px; }
-        .about-cta { display:flex; gap:16px; margin-top:40px; flex-wrap:wrap; }
-        @media (max-width:900px) {
-            .about-layout { grid-template-columns:1fr; }
-            .about-image-col { position:static; height:60vw; min-height:300px; }
-            .about-text-col { padding:56px 24px; }
+        /* ── About layout ── */
+        .about-layout {
+            margin-top: var(--header-h);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: calc(100vh - var(--header-h));
         }
-        .newsletter { background: var(--bg-alt) !important; }
-        .newsletter h3 { color: var(--text) !important; }
-        .newsletter p { color: var(--muted) !important; }
-        .newsletter-form input { color: var(--text) !important; }
-        .newsletter-form input::placeholder { color: var(--muted) !important; }
-        .newsletter-form button { color: var(--text) !important; }
-        .newsletter-form { border-bottom-color: var(--border) !important; }
-        </style>
+        .about-image-col {
+            position: sticky;
+            top: var(--header-h);
+            height: calc(100vh - var(--header-h));
+            overflow: hidden;
+            background: var(--bg-alt);
+        }
+        .about-image-col img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+        .about-text-col {
+            padding: 96px 72px 96px 64px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow-y: auto;
+        }
+        .about-eyebrow {
+            font-size: 10px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 24px;
+        }
+        .about-text-col h1 {
+            font-family: var(--serif);
+            font-size: clamp(32px, 3.5vw, 52px);
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.12;
+            margin-bottom: 36px;
+        }
+        .about-text-col p {
+            font-size: 15px;
+            color: var(--muted);
+            line-height: 2;
+            margin-bottom: 22px;
+            max-width: 480px;
+        }
+        .about-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 48px 0;
+        }
+        .about-text-col h2 {
+            font-family: var(--serif);
+            font-size: clamp(22px, 2.5vw, 36px);
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .about-cta {
+            display: flex;
+            gap: 16px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 900px) {
+            .about-layout { grid-template-columns: 1fr; }
+            .about-image-col { position: static; height: 60vw; min-height: 300px; }
+            .about-text-col { padding: 56px 24px; }
+        }
+
+        html, body {
+            overscroll-behavior: none;
+        }
+    </style>
 </head>
 <body>
 
 <header class="site-header" id="site-header">
     <div class="header-inner">
-                <nav class="nav-left">
+        <nav class="nav-left">
             <ul>
                 <li><a href="about.html">About</a></li>
                 <li><a href="shop.html">Shop</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
-                <div class="logo">
+        <div class="logo">
             <a href="index.html" aria-label="Lala Blue">
                 <span class="logo-text">Lala Blue</span>
+                <img src="assets/images/logo-poster.png" alt="Lala Blue" class="logo-hover-img">
             </a>
         </div>
-            </a>
-        </div>
-                <nav class="nav-right">
+        <nav class="nav-right">
             <ul><li><a href="index.html">← Home</a></li></ul>
         </nav>
         <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
     </div>
 </header>
+
 <nav class="mobile-nav" id="mobile-nav">
     <a href="about.html">About</a>
     <a href="shop.html">Shop</a>
@@ -70,35 +153,22 @@
 
 <div class="about-layout">
     <div class="about-image-col fade-in">
-        <img src="assets/images/orange/interior-open.jpg" alt="The Gammon Bag — interior">
+        <img src="assets/images/navy/interior-open.jpg" alt="The Gammon Bag — interior">
     </div>
     <div class="about-text-col">
         <p class="about-eyebrow fade-up">Lala Blue</p>
         <h1 class="fade-up d1">Designed from<br>the heart.</h1>
-        <p class="fade-up d2">Lala Blue was founded by Elika Broumand — NYU Gallatin student and designer — with a single belief: that an object made with genuine care will outlast every trend.</p>
+        <p class="fade-up d2">Lala Blue was founded by Elika Broumand, an NYU Gallatin student and designer.</p>
         <p class="fade-up d2">Each bag begins as a sketch and ends as something you reach for every day. Not because it announces itself, but because it simply works.</p>
         <hr class="about-divider fade-up d3">
         <h2 class="fade-up d3">The Gammon Bag.</h2>
-        <p class="fade-up d3">Handcrafted leather in Orange, Navy, and Bronze. Gold brass hardware. Each colorway with its own distinctive lining. Made in USA. Available for pre-order now at $545.</p>
+        <p class="fade-up d3">Handcrafted leather in Orange, Navy, and Bronze. Gold brass hardware. Each colorway with its own distinctive lining. Made in USA. Available for pre-order now.</p>
         <div class="about-cta fade-up d4">
             <a href="shop.html" class="btn btn-dark">Shop Now</a>
             <a href="contact.html" class="btn btn-dark">Get in Touch</a>
         </div>
     </div>
 </div>
-
-<section class="newsletter">
-    <div class="newsletter-inner fade-up">
-        <h3>Stay close to the work.</h3>
-        <p>New pieces, stories, and early access delivered quietly to your inbox.</p>
-        <form action="https://formspree.io/f/mreoqvzo" method="POST" target="_blank" style="display:contents">
-            <div class="newsletter-form">
-                <input type="email" name="email" placeholder="Your email address" required>
-                <button type="submit">Subscribe</button>
-            </div>
-        </form>
-    </div>
-</section>
 
 <footer class="site-footer">
     <div class="footer-inner">
@@ -120,7 +190,6 @@
             </div>
             <p class="footer-copy">© 2026 Lala Blue. All rights reserved.</p>
         </div>
-        <hr class="footer-divider">
     </div>
 </footer>
 

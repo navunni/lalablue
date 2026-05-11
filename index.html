@@ -3,22 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lala Blue — The Gammon Bag</title>
+    <title>Lala Blue</title>
     <meta name="description" content="The Gammon Bag by Lala Blue. Pre-order now. Available in Orange, Navy and Bronze.">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <style>
-        .logo-text { font-family: var(--serif); font-size: 26px; font-weight: 300; font-style: italic; letter-spacing: 0.07em; color: var(--text); }
-        .newsletter { background: var(--bg-alt) !important; }
-        .newsletter h3 { color: var(--text) !important; }
-        .newsletter p { color: var(--muted) !important; }
-        .newsletter-form input { color: var(--text) !important; }
+        .logo-text {
+            font-family: var(--serif);
+            font-size: 26px;
+            font-weight: 300;
+            font-style: italic;
+            letter-spacing: 0.07em;
+            color: var(--text);
+            transition: opacity 0.35s ease;
+            white-space: nowrap;
+        }
+        .logo a {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 44px;
+        }
+        .logo-hover-img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 72px;
+            width: auto;
+            object-fit: contain;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            pointer-events: none;
+        }
+        .logo a:hover .logo-text      { opacity: 0; }
+        .logo a:hover .logo-hover-img { opacity: 1; }
+
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            min-height: 600px;
+            margin-top: var(--header-h);
+            overflow: hidden;
+            background: #ffffff;
+            margin-top: 0;
+        }
+        .hero-image {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-image video {
+            height: 100%;
+            width: auto;
+            display: block;
+        }
+        .hero-content {
+            position: absolute;
+            bottom: 80px;
+            left: 64px;           
+            color: var(--text);
+            max-width: 520px;
+        }
+        .newsletter {
+            background: #ffffff !important;
+            border-top: 1px solid var(--border) !important;
+            border-bottom: none !important;
+        }
+        .newsletter h3                      { color: var(--text) !important; }
+        .newsletter p                       { color: var(--muted) !important; }
+        .newsletter-form input              { color: var(--text) !important; }
         .newsletter-form input::placeholder { color: var(--muted) !important; }
-        .newsletter-form button { color: var(--text) !important; }
+        .newsletter-form button             { color: var(--text) !important; }
         .newsletter-form { border-bottom-color: var(--border) !important; }
+
+        html, body {
+            overscroll-behavior: none;
+        }
     </style>
 </head>
 <body>
+
 <header class="site-header" id="site-header">
     <div class="header-inner">
         <nav class="nav-left">
@@ -31,6 +100,7 @@
         <div class="logo">
             <a href="index.html" aria-label="Lala Blue">
                 <span class="logo-text">Lala Blue</span>
+                <img src="assets/images/logo-poster.png" alt="Lala Blue" class="logo-hover-img">
             </a>
         </div>
         <nav class="nav-right">
@@ -41,15 +111,16 @@
         </button>
     </div>
 </header>
+
 <nav class="mobile-nav" id="mobile-nav">
     <a href="about.html">About</a>
     <a href="shop.html">Shop</a>
     <a href="contact.html">Contact</a>
 </nav>
+
 <section class="hero">
     <div class="hero-image fade-in">
-        <video autoplay muted loop playsinline
-               poster="assets/images/logo-poster.png">
+        <video autoplay muted loop playsinline poster="assets/images/logo-poster.png">
             <source src="assets/videos/logo-spin.webm" type="video/webm">
             <source src="assets/videos/logo-spin.mp4" type="video/mp4">
         </video>
@@ -61,6 +132,7 @@
         <a href="shop.html" class="btn fade-up d4">Shop Now</a>
     </div>
 </section>
+
 <section class="newsletter">
     <div class="newsletter-inner fade-up">
         <h3>Stay close to the work.</h3>
@@ -73,6 +145,7 @@
         </form>
     </div>
 </section>
+
 <footer class="site-footer">
     <div class="footer-inner">
         <div class="footer-brand">
@@ -93,9 +166,9 @@
             </div>
             <p class="footer-copy">© 2026 Lala Blue. All rights reserved.</p>
         </div>
-        <hr class="footer-divider">
     </div>
 </footer>
+
 <script src="js/main.js"></script>
 </body>
 </html>

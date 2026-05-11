@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop — Lala Blue</title>
-    <meta name="description" content="Shop Lala Blue. The Gammon Bag — available in Black, Orange, Navy and Bronze.">
+    <meta name="description" content="Shop Lala Blue. The Gammon Bag — available in Orange, Navy and Bronze.">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <style>
         .logo-text { font-family: var(--serif); font-size: 26px; font-weight: 300; font-style: italic; letter-spacing: 0.07em; color: var(--text); }
-        .shop-header-section { margin-top:var(--header-h); padding:72px 52px 48px; border-bottom:1px solid var(--border); }
+        .shop-header-section { margin-top: var(--header-h); padding: 16px 52px 16px; border-bottom: none;}
+        .shop-grid-section {padding: 8px 52px 48px;}
         .shop-header-section h1 { font-family:var(--serif); font-size:clamp(32px,4vw,56px); font-weight:300; font-style:italic; }
         .shop-header-section p { font-size:13px; color:var(--muted); margin-top:8px; letter-spacing:0.04em; }
-        .shop-grid-section { padding:var(--spacing-lg) 52px; }
+        .shop-header-section { padding: 56px 52px 36px; }
         .shop-inner { max-width:var(--max-width); margin:0 auto; }
         .colorway-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; }
         .colorway-card { display:block; text-decoration:none; color:inherit; }
@@ -22,7 +23,7 @@
         .preorder-tag { position:absolute; top:14px; left:14px; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; background:var(--text); color:var(--text-inv); padding:4px 10px; }
         .colorway-name { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px; }
         .colorway-price { font-size:13px; color:var(--muted); }
-        .newsletter { background: var(--bg-alt) !important; }
+        .newsletter { background: #ffffff !important; }
         .newsletter h3 { color: var(--text) !important; }
         .newsletter p { color: var(--muted) !important; }
         .newsletter-form input { color: var(--text) !important; }
@@ -31,6 +32,31 @@
         .newsletter-form { border-bottom-color: var(--border) !important; }
         @media (max-width:900px) { .colorway-grid { grid-template-columns:repeat(2,1fr); } }
         @media (max-width:560px) { .colorway-grid { grid-template-columns:1fr 1fr; gap:16px; } .shop-header-section, .shop-grid-section { padding-left:24px; padding-right:24px; } }
+        html, body {overscroll-behavior: none;}
+        .logo a {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 44px;
+        }
+        .logo-text {
+            transition: opacity 0.35s ease;
+        }
+        .logo-hover-img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 72px;
+            width: auto;
+            object-fit: contain;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            pointer-events: none;
+        }
+        .logo a:hover .logo-text      { opacity: 0; }
+        .logo a:hover .logo-hover-img { opacity: 1; }
     </style>
 </head>
 <body>
@@ -46,6 +72,7 @@
         <div class="logo">
             <a href="index.html" aria-label="Lala Blue">
                 <span class="logo-text">Lala Blue</span>
+                <img src="assets/images/logo-poster.png" alt="Lala Blue" class="logo-hover-img">
             </a>
         </div>
         <nav class="nav-right">
@@ -63,18 +90,11 @@
 </nav>
 <section class="shop-header-section">
     <h1 class="fade-up">The Gammon Bag</h1>
-    <p class="fade-up d1">4 colorways · Orders available now</p>
+    <p class="fade-up d1">Orders available now!</p>
 </section>
 <section class="shop-grid-section">
     <div class="shop-inner">
         <div class="colorway-grid">
-            <a href="gammon-black.html" class="colorway-card fade-up">
-                <div class="colorway-card-img">
-                    <img src="assets/images/product-front.jpg" alt="The Gammon Bag in Black">
-                </div>
-                <p class="colorway-name">Black</p>
-                <p class="colorway-price">$495.00</p>
-            </a>
             <a href="gammon-orange.html" class="colorway-card fade-up d1">
                 <div class="colorway-card-img">
                     <img src="assets/images/orange/front.jpg" alt="The Gammon Bag in Orange">
@@ -134,7 +154,6 @@
             </div>
             <p class="footer-copy">© 2026 Lala Blue. All rights reserved.</p>
         </div>
-        <hr class="footer-divider">
     </div>
 </footer>
 <script src="js/shop.js"></script>
