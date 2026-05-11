@@ -61,6 +61,7 @@
             height: 100%;
             width: auto;
             display: block;
+
         }
         .hero-content {
             position: absolute;
@@ -87,6 +88,18 @@
 
         #privacy {
             scroll-margin-top: calc(var(--header-h) + 24px);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                position: absolute;
+                bottom: 40px;
+                left: 24px;
+                right: 24px;
+            }
+            .hero-content h1 {
+                font-size: 36px;
+            }
         }
     </style>
 </head>
